@@ -8,23 +8,21 @@ using UnityEngine.UI;
 public class ShortcutButtons : MonoBehaviour
 {
     private static GameObject backgroundObject = null;
-    private static Background backgroundScript = null;
     private static SpriteRenderer backgroundSprite = null;
+    private static PageUtility[] pageUtilities;
 
     // private static RectTransform backgroundRect = null;
     // Start is called before the first frame update
     void Start()
     {
-        if (backgroundSprite == null)
+        if (backgroundObject == null)
         {
             backgroundObject = GameObject.Find("Background");
-            backgroundScript = backgroundObject.GetComponent<Background>();
             backgroundSprite = backgroundObject.GetComponent<SpriteRenderer>();
-            // backgroundRect = backgroundObject.GetComponent<RectTransform>();
+            pageUtilities = GameObject.Find("EachPageUtilities").GetComponents<PageUtility>();
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -32,27 +30,26 @@ public class ShortcutButtons : MonoBehaviour
 
     public void switchToMainhall()
     {
-        // backgroundSprite.sprite =
-        //     Sprite.Create(backgroundScript.backgrounds[0], backgroundRect.rect,
-        //         backgroundRect.pivot); //backgroundScript.backgrounds[0];
-        backgroundSprite.sprite = backgroundScript.backgrounds[0];
+        backgroundSprite.sprite = pageUtilities[0].Background;
     }
-
-    public void switchToShop()
-    {
-        // backgroundSprite.sprite =
-        //     Sprite.Create(backgroundScript.backgrounds[1], backgroundRect.rect,
-        //         backgroundRect.pivot);
-        backgroundSprite.sprite = backgroundScript.backgrounds[1];
-    }
-
-    public void switchToAttackSelectionPage()
-    {
-        backgroundSprite.sprite = backgroundScript.backgrounds[2];
-    }
-
     public void switchToMissionBoard()
     {
-        backgroundSprite.sprite = backgroundScript.backgrounds[3];
+        backgroundSprite.sprite = pageUtilities[1].Background;
     }
+    public void switchToAttackSelectionPage()
+    {
+        backgroundSprite.sprite = pageUtilities[2].Background;
+    }
+    public void switchToShop()
+    {
+        backgroundSprite.sprite = pageUtilities[3].Background;
+    }
+
+    public void switchToCharStatus()
+    {
+        backgroundSprite.sprite = pageUtilities[4].Background;
+    }
+
+
+
 }

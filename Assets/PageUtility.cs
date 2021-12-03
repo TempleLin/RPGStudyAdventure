@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface PageUtility
+public abstract class PageUtility : MonoBehaviour
 {
-    public void getCalledStart();
-    public void getCalledUpdate();
-    public void getCalledStop();
+    [SerializeField]    
+    protected Sprite background;
+
+    public Sprite @Background => background;
+    public abstract void getCalledStart();
+    public abstract void getCalledUpdate();
+    public abstract void getCalledStop();
 }
