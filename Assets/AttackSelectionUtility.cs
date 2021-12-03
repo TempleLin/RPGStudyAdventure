@@ -1,35 +1,51 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-[RequireComponent(typeof(EventTrigger))]
 public class AttackSelectionUtility : PageUtility
 {
-    private EventTrigger _eventTrigger;
-    [SerializeField]
-    private List<GameObject> monsterSelectionButtons;
+    // private EventTrigger _eventTrigger;
+    // public EventTrigger @EventTrigger => _eventTrigger;
 
-    public List<GameObject> MonsterSelectionButtons => monsterSelectionButtons;
+    [SerializeField]
+    private List<MonsterSelectionWidget> monsterSelectionWidgets;
+
+    public List<MonsterSelectionWidget> MonsterSelectionWidgets => monsterSelectionWidgets;
+
+    private bool instantiatedHoveringEventTrigger = false;
     // Start is called before the first frame update
     void Start()
     {
-        _eventTrigger = GetComponent<EventTrigger>();
-        
-        // EventTrigger.Entry onHoverEntry = new EventTrigger.Entry {eventID = EventTriggerType.PointerEnter};
-        // onHoverEntry.callback.AddListener(onHover);
-        // _eventTrigger.triggers.Add(onHoverEntry);
+        // _eventTrigger = GetComponent<EventTrigger>();
+        // HoveringEventTrigger.setEventTriggerHoveringScale(this);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        monsterSelectionWidgets.ForEach(selections =>
+        {
+            selections.checkOnHover();
+            selections.checkOnClick();
+        });
     }
 
     public override void getCalledStart()
     {
-        monsterSelectionButtons.ForEach(selections => selections.SetActive(true));
+        foreach (var selections in monsterSelectionWidgets)
+        {
+            selections.gameObject.SetActive(true);
+            if (!instantiatedHoveringEventTrigger)
+            {
+                selections.gameObject.AddComponent<EventTrigger>();
+                // HoveringEventTrigger.setEventTriggerHoveringScale(this);
+            }
+        }
+
+        instantiatedHoveringEventTrigger = true;
+        // monsterSelectionButtons.ForEach(selections => selections.SetActive(true));
     }
 
     public override void getCalledUpdate()
@@ -38,6 +54,6 @@ public class AttackSelectionUtility : PageUtility
 
     public override void getCalledStop()
     {
-        monsterSelectionButtons.ForEach(selections => selections.SetActive(false));
+        monsterSelectionWidgets.ForEach(selections => selections.gameObject.SetActive(false));
     }
 }

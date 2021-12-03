@@ -7,15 +7,20 @@ using UnityEngine.EventSystems;
 
 public static class HoveringEventTrigger
 {
-    public static void setEventTriggerHoveringScale(EventTrigger eventTrigger, 
-        UnityAction<BaseEventData> onHoverCallback, UnityAction<BaseEventData> onExitHoverCallback)
+    public interface TriggerOnHover
+    {
+        public EventTrigger @EventTrigger { get; }
+        public void onHoverEntry(BaseEventData baseEventData);
+        public void onExitHoverEntry(BaseEventData baseEventData);
+    }
+    public static void setEventTriggerHoveringScale(TriggerOnHover triggerOnHover)
     {
         EventTrigger.Entry onHoverEntry = new EventTrigger.Entry {eventID = EventTriggerType.PointerEnter};
-        onHoverEntry.callback.AddListener(onHoverCallback);
-        eventTrigger.triggers.Add(onHoverEntry);
+        onHoverEntry.callback.AddListener(triggerOnHover.onHoverEntry);
+        triggerOnHover.EventTrigger.triggers.Add(onHoverEntry);
 
         EventTrigger.Entry onExitHoverEntry = new EventTrigger.Entry {eventID = EventTriggerType.PointerExit};
-        onExitHoverEntry.callback.AddListener(onExitHoverCallback);
-        eventTrigger.triggers.Add(onExitHoverEntry);
+        onExitHoverEntry.callback.AddListener(triggerOnHover.onExitHoverEntry);
+        triggerOnHover.EventTrigger.triggers.Add(onExitHoverEntry);
     }
 }

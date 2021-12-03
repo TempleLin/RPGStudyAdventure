@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button)), RequireComponent(typeof(EventTrigger))]
-public class ShortcutButtons : MonoBehaviour
+public class ShortcutButtons : MonoBehaviour, HoveringEventTrigger.TriggerOnHover
 {
     private static GameObject backgroundObject = null;
     private static SpriteRenderer backgroundSprite = null;
@@ -13,6 +13,8 @@ public class ShortcutButtons : MonoBehaviour
     private static PageUtility currentPage;
     private RectTransform _rectTransform;
     private EventTrigger _eventTrigger;
+    public EventTrigger EventTrigger => _eventTrigger;
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,14 +36,14 @@ public class ShortcutButtons : MonoBehaviour
     {
         
     }
-    public void onHover(BaseEventData baseEventData) //Event trigger function
+    public void onHoverEntry(BaseEventData baseEventData) //Event trigger function
     {
         var tempLocalScale = _rectTransform.localScale;
         _rectTransform.localScale = new Vector3(tempLocalScale.x + .3f, tempLocalScale.y + .3f, tempLocalScale.z);
         Debug.Log("OnShortcutHover");
     }
 
-    public void onExitHover(BaseEventData baseEventData) //Event trigger function
+    public void onExitHoverEntry(BaseEventData baseEventData) //Event trigger function
     {
         var tempLocalScale = _rectTransform.localScale;
         _rectTransform.localScale = new Vector3(tempLocalScale.x - .3f, tempLocalScale.y - .3f, tempLocalScale.z);
@@ -89,6 +91,17 @@ public class ShortcutButtons : MonoBehaviour
     private void setEventTrigger()
     {
         _eventTrigger = gameObject.GetComponent<EventTrigger>();
-        HoveringEventTrigger.setEventTriggerHoveringScale(_eventTrigger, onHover, onExitHover);
+        HoveringEventTrigger.setEventTriggerHoveringScale(this);
     }
+
+    // //From HoveringEventTrigger.TriggerOnHover
+    // public void onHoverEntry(BaseEventData baseEventData)
+    // {
+    //     throw new System.NotImplementedException();
+    // }
+    // //From HoveringEventTrigger.TriggerOnHover
+    // public void onExitHoverEntry(BaseEventData baseEventData)
+    // {
+    //     throw new System.NotImplementedException();
+    // }
 }
