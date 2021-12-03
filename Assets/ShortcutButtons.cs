@@ -4,13 +4,15 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button)), RequireComponent(typeof(EventTrigger))]
+[RequireComponent(typeof(Button))]
 public class ShortcutButtons : MonoBehaviour
 {
     private static GameObject backgroundObject = null;
     private static SpriteRenderer backgroundSprite = null;
     private static PageUtility[] pageUtilities;
     private static PageUtility currentPage;
+    private RectTransform _rectTransform;
+    private EventTrigger _eventTrigger;
 
     // private static RectTransform backgroundRect = null;
     // Start is called before the first frame update
@@ -23,11 +25,27 @@ public class ShortcutButtons : MonoBehaviour
             pageUtilities = GameObject.Find("EachPageUtilities").GetComponents<PageUtility>();
             currentPage = pageUtilities[0];
         }
+
+        _rectTransform = GetComponent<RectTransform>();
+        setEventTrigger();
     }
 
     void Update()
     {
         
+    }
+    public void onHover(BaseEventData baseEventData) //Event trigger function
+    {
+        var tempLocalScale = _rectTransform.localScale;
+        _rectTransform.localScale = new Vector3(tempLocalScale.x + .3f, tempLocalScale.y + .3f, tempLocalScale.z);
+        Debug.Log("OnShortcutHover");
+    }
+
+    public void onExitHover(BaseEventData baseEventData) //Event trigger function
+    {
+        var tempLocalScale = _rectTransform.localScale;
+        _rectTransform.localScale = new Vector3(tempLocalScale.x - .3f, tempLocalScale.y - .3f, tempLocalScale.z);
+        Debug.Log("OnShortcutExitHover");
     }
 
     public void switchToMainhall()
@@ -65,5 +83,19 @@ public class ShortcutButtons : MonoBehaviour
             currentPage.getCalledStop();
             currentPage = pageUtilities[index];
         }
+    }
+
+
+    private void setEventTrigger()
+    {
+        _eventTrigger = gameObject.AddComponent<EventTrigger>();
+
+        EventTrigger.Entry onHoverEntry = new EventTrigger.Entry {eventID = EventTriggerType.PointerEnter};
+        onHoverEntry.callback.AddListener(onHover);
+        _eventTrigger.triggers.Add(onHoverEntry);
+
+        EventTrigger.Entry onExitHoverEntry = new EventTrigger.Entry {eventID = EventTriggerType.PointerExit};
+        onExitHoverEntry.callback.AddListener(onExitHover);
+        _eventTrigger.triggers.Add(onExitHoverEntry);
     }
 }
