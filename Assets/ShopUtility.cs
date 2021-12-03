@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ShopUtility : PageUtility
 {
+    [SerializeField]
+    private GameObject shopLadyObject;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class ShopUtility : PageUtility
 
     public override void getCalledStart()
     {
+        shopLadyObject.SetActive(true);
     }
 
     public override void getCalledUpdate()
@@ -26,5 +29,6 @@ public class ShopUtility : PageUtility
 
     public override void getCalledStop()
     {
+        shopLadyObject.SetActive(false);
     }
 }
