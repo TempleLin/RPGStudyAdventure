@@ -18,16 +18,13 @@ public class ShopUtility : PageUtility
 
     public override void getCalledStart()
     {
-        throw new System.NotImplementedException();
     }
 
     public override void getCalledUpdate()
     {
-        throw new System.NotImplementedException();
     }
 
     public override void getCalledStop()
     {
-        throw new System.NotImplementedException();
     }
 }

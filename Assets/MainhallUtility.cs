@@ -19,16 +19,16 @@ public class MainhallUtility : PageUtility
 
     public override void getCalledStart()
     {
-        throw new System.NotImplementedException();
+        mainCharObject.SetActive(true);
     }
 
     public override void getCalledUpdate()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void getCalledStop()
     {
-        throw new System.NotImplementedException();
+        mainCharObject.SetActive(false);
     }
 }
