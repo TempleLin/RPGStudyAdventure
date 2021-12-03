@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(EventTrigger))]
 public class AttackSelectionUtility : PageUtility
 {
+    private EventTrigger _eventTrigger;
     [SerializeField]
     private List<GameObject> monsterSelectionButtons;
 
@@ -11,7 +14,11 @@ public class AttackSelectionUtility : PageUtility
     // Start is called before the first frame update
     void Start()
     {
+        _eventTrigger = GetComponent<EventTrigger>();
         
+        // EventTrigger.Entry onHoverEntry = new EventTrigger.Entry {eventID = EventTriggerType.PointerEnter};
+        // onHoverEntry.callback.AddListener(onHover);
+        // _eventTrigger.triggers.Add(onHoverEntry);
     }
 
     // Update is called once per frame

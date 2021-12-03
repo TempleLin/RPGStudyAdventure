@@ -14,7 +14,6 @@ public class ShortcutButtons : MonoBehaviour
     private RectTransform _rectTransform;
     private EventTrigger _eventTrigger;
 
-    // private static RectTransform backgroundRect = null;
     // Start is called before the first frame update
     void Start()
     {
@@ -90,13 +89,6 @@ public class ShortcutButtons : MonoBehaviour
     private void setEventTrigger()
     {
         _eventTrigger = gameObject.GetComponent<EventTrigger>();
-
-        EventTrigger.Entry onHoverEntry = new EventTrigger.Entry {eventID = EventTriggerType.PointerEnter};
-        onHoverEntry.callback.AddListener(onHover);
-        _eventTrigger.triggers.Add(onHoverEntry);
-
-        EventTrigger.Entry onExitHoverEntry = new EventTrigger.Entry {eventID = EventTriggerType.PointerExit};
-        onExitHoverEntry.callback.AddListener(onExitHover);
-        _eventTrigger.triggers.Add(onExitHoverEntry);
+        HoveringEventTrigger.setEventTriggerHoveringScale(_eventTrigger, onHover, onExitHover);
     }
 }
