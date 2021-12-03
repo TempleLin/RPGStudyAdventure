@@ -15,7 +15,6 @@ public class ShortcutButtons : MonoBehaviour, HoveringEventTrigger.TriggerOnHove
     private EventTrigger _eventTrigger;
     public EventTrigger EventTrigger => _eventTrigger;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -57,17 +56,14 @@ public class ShortcutButtons : MonoBehaviour, HoveringEventTrigger.TriggerOnHove
     public void switchToMissionBoard()
     {
         switch_start_stop_Page(1);
-
     }
     public void switchToAttackSelectionPage()
     {
         switch_start_stop_Page(2);
-
     }
     public void switchToShop()
     {
         switch_start_stop_Page(3);
-
     }
 
     public void switchToCharStatus()
