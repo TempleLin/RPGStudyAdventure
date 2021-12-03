@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
+[RequireComponent(typeof(Button)), RequireComponent(typeof(EventTrigger))]
 public class ShortcutButtons : MonoBehaviour
 {
     private static GameObject backgroundObject = null;
@@ -24,6 +24,7 @@ public class ShortcutButtons : MonoBehaviour
             backgroundSprite = backgroundObject.GetComponent<SpriteRenderer>();
             pageUtilities = GameObject.Find("EachPageUtilities").GetComponents<PageUtility>();
             currentPage = pageUtilities[0];
+            backgroundSprite.sprite = currentPage.Background;
         }
 
         _rectTransform = GetComponent<RectTransform>();
@@ -88,7 +89,7 @@ public class ShortcutButtons : MonoBehaviour
 
     private void setEventTrigger()
     {
-        _eventTrigger = gameObject.AddComponent<EventTrigger>();
+        _eventTrigger = gameObject.GetComponent<EventTrigger>();
 
         EventTrigger.Entry onHoverEntry = new EventTrigger.Entry {eventID = EventTriggerType.PointerEnter};
         onHoverEntry.callback.AddListener(onHover);
