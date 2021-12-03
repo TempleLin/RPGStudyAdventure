@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class AttackSelectionUtility : PageUtility
 {
+    [SerializeField]
+    private List<GameObject> monsterSelectionButtons;
+
+    public List<GameObject> MonsterSelectionButtons => monsterSelectionButtons;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +22,7 @@ public class AttackSelectionUtility : PageUtility
 
     public override void getCalledStart()
     {
+        monsterSelectionButtons.ForEach(selections => selections.SetActive(true));
     }
 
     public override void getCalledUpdate()
@@ -26,5 +31,6 @@ public class AttackSelectionUtility : PageUtility
 
     public override void getCalledStop()
     {
+        monsterSelectionButtons.ForEach(selections => selections.SetActive(false));
     }
 }
