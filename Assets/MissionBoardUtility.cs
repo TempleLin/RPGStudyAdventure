@@ -30,12 +30,6 @@ public class MissionBoardUtility : PageUtility
         missionPaperConfirmBtn.onClick.AddListener(missionPaperConfirmOnClick);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override void getCalledStart()
     {
         startInputMissionBtnObject.SetActive(true);

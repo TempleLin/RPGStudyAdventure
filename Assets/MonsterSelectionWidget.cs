@@ -20,12 +20,6 @@ public class MonsterSelectionWidget : MonoBehaviour
         _boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void checkOnHover()
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);

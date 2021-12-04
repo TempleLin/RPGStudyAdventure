@@ -34,11 +34,7 @@ public class ShortcutButtons : MonoBehaviour, EventTriggerSettings.TriggerOnHove
         _rectTransform = GetComponent<RectTransform>();
         setEventTrigger();
     }
-
-    void Update()
-    {
-        
-    }
+    
     public void onHoverEntry(BaseEventData baseEventData) //Event trigger function
     {
         var tempLocalScale = _rectTransform.localScale;

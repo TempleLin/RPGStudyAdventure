@@ -13,12 +13,6 @@ public class ShopUtility : PageUtility
 
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override void getCalledStart()
     {
         shopLadyObject.SetActive(true);

@@ -46,28 +46,4 @@ public class InventorySystem : MonoBehaviour
             });
         }
     }
-    //
-    // private EventTrigger _eventTrigger;
-    // public EventTrigger EventTrigger => _eventTrigger;
-    // public void onHoverEntry(BaseEventData baseEventData)
-    // {
-    //     Debug.Log("OnHoverSlot: " + baseEventData.selectedObject.name);
-    // }
-    //
-    // public void onExitHoverEntry(BaseEventData baseEventData)
-    // {
-    //     Debug.Log("OnExitHoverSlot: " + baseEventData.selectedObject.name);
-    // }
-    //
-    // public void onDrag(BaseEventData baseEventData)
-    // {
-    //     Debug.Log(baseEventData.selectedObject);
-    //     // Vector3 prevPosition = baseEventData.selectedObject.transform.position;
-    //     // prevPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, prevPosition.z);
-    // }
-    //
-    // public void onDrop(BaseEventData baseEventData)
-    // {
-    //     Debug.Log("OnDrop");
-    // }
 }

@@ -12,11 +12,6 @@ public class CharStatusUtility : PageUtility
         inventoryObject.SetActive(false);
     }
 
-    void Update()
-    {
-        
-    }
-
     public override void getCalledStart()
     {
         inventoryObject.SetActive(true);

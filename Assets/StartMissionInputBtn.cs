@@ -20,12 +20,6 @@ public class StartMissionInputBtn : MonoBehaviour, EventTriggerSettings.TriggerO
         EventTriggerSettings.setEventTriggerHoveringScale(this);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void onHoverEntry(BaseEventData baseEventData)
     {
         Debug.Log("OnHoverStartMissionInputBtn");

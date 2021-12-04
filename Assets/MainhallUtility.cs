@@ -10,12 +10,6 @@ public class MainhallUtility : PageUtility
         base.utilityStart();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override void getCalledStart()
     {
         _utilitiesSharedData.MainCharObject.SetActive(true);
