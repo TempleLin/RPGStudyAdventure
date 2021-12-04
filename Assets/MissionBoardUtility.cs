@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,11 +12,14 @@ public class MissionBoardUtility : PageUtility
     [SerializeField] private GameObject missionPaperObject;
     [SerializeField] private Button missionPaperConfirmBtn;
     [SerializeField] private Scrollbar missionPaperScrollbar;
+    [SerializeField] private MissionSettingController _missionSettingController;
 
     private Button startInputMissionBtn;
 
     private Text startInputMissionBtnText;
-    private float timeCounter = 0f;
+    // private bool startCounting = false;
+    // private float timeCounter = 0f;
+    // private bool startCount = false;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +35,14 @@ public class MissionBoardUtility : PageUtility
         missionPaperObject.SetActive(false);
         
         missionPaperConfirmBtn.onClick.AddListener(missionPaperConfirmOnClick);
+    }
+
+    private void Update()
+    {
+        // if (startCount)
+        // {
+            // Debug.Log("Test");
+        // }
     }
 
     public override void getCalledStart()
@@ -63,5 +75,10 @@ public class MissionBoardUtility : PageUtility
         missionPaperScrollbar.interactable = false;
         startInputMissionBtnText.text = "重置新任務";
         shortcutObject.SetActive(true);
+        _missionSettingController.StartCountingDown = true;
+        // startCounting = true;
+        // StartCoroutine(userInputTimer(scro))
     }
+    
+
 }

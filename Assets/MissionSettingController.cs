@@ -11,7 +11,9 @@ public class MissionSettingController : MonoBehaviour
     private Text text;
 
     private string textDefaultStr;
-    // Start is called before the first frame update
+
+    public bool StartCountingDown { get; set; } = false;
+
     void Start()
     {
         _scrollbar = GetComponent<Scrollbar>();
@@ -21,6 +23,20 @@ public class MissionSettingController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = (_scrollbar.value > 0) ? (_scrollbar.value * 24f) + "小時" : textDefaultStr;
+        if (!StartCountingDown)
+        {
+            Debug.Log("NoStartCountingDown");
+            text.text = (_scrollbar.value > 0) ? (_scrollbar.value * 24f) + "小時" : textDefaultStr;
+        }
+        else
+        {
+            Debug.Log("StartCountingDown");
+            _scrollbar.value -= (_scrollbar.value - (Time.deltaTime / 3600f / 24f) >= 0)? Time.deltaTime / 3600f / 24f : _scrollbar.value;
+            text.text = (_scrollbar.value * 24f).ToString();
+            if (_scrollbar.value == 0f)
+            {
+                StartCountingDown = false;
+            }
+        }
     }
 }
