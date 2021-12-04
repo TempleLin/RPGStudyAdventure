@@ -20,8 +20,10 @@ public class MissionBoardUtility : PageUtility
     {
         startInputMissionBtn = startInputMissionBtnObject.GetComponent<Button>();
         startInputMissionBtn.onClick.AddListener(startInputMissionBtnOnClick);
+        startInputMissionBtnObject.SetActive(false);
 
         startInputMissionBtnText = startInputMissionBtn.GetComponentInChildren<Text>();
+        startInputMissionBtnText.text = "加入新任務";
         missionPaperObject.SetActive(false);
         
         missionPaperConfirmBtn.onClick.AddListener(missionPaperConfirmOnClick);
@@ -60,6 +62,7 @@ public class MissionBoardUtility : PageUtility
     {
         missionPaperObject.SetActive(false);
         startInputMissionBtnObject.SetActive(true);
+        startInputMissionBtnText.text = "重置新任務";
         shortcutObject.SetActive(true);
     }
 }

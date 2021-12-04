@@ -5,20 +5,15 @@ using UnityEngine.EventSystems;
 
 public class AttackSelectionUtility : PageUtility
 {
-    // private EventTrigger _eventTrigger;
-    // public EventTrigger @EventTrigger => _eventTrigger;
-
     [SerializeField]
     private List<MonsterSelectionWidget> monsterSelectionWidgets;
-
     public List<MonsterSelectionWidget> MonsterSelectionWidgets => monsterSelectionWidgets;
 
     private bool instantiatedHoveringEventTrigger = false;
     // Start is called before the first frame update
     void Start()
     {
-        // _eventTrigger = GetComponent<EventTrigger>();
-        // HoveringEventTrigger.setEventTriggerHoveringScale(this);
+        monsterSelectionWidgets.ForEach(selections => selections.gameObject.SetActive(false));
     }
 
     // Update is called once per frame
@@ -33,18 +28,16 @@ public class AttackSelectionUtility : PageUtility
 
     public override void getCalledStart()
     {
-        foreach (var selections in monsterSelectionWidgets)
+        monsterSelectionWidgets.ForEach(selections =>
         {
             selections.gameObject.SetActive(true);
             if (!instantiatedHoveringEventTrigger)
             {
                 selections.gameObject.AddComponent<EventTrigger>();
-                // HoveringEventTrigger.setEventTriggerHoveringScale(this);
             }
-        }
+        });
 
         instantiatedHoveringEventTrigger = true;
-        // monsterSelectionButtons.ForEach(selections => selections.SetActive(true));
     }
 
     public override void getCalledUpdate()
