@@ -9,6 +9,7 @@ public class MissionBoardUtility : PageUtility
 
     [SerializeField] private GameObject startInputMissionBtnObject;
     [SerializeField] private GameObject missionPaperObject;
+    [SerializeField] private Button missionPaperConfirmBtn;
 
     private Button startInputMissionBtn;
 
@@ -18,9 +19,12 @@ public class MissionBoardUtility : PageUtility
     void Start()
     {
         startInputMissionBtn = startInputMissionBtnObject.GetComponent<Button>();
-        startInputMissionBtn.onClick.AddListener(startInputMissionBtnOnclick);
+        startInputMissionBtn.onClick.AddListener(startInputMissionBtnOnClick);
 
         startInputMissionBtnText = startInputMissionBtn.GetComponentInChildren<Text>();
+        missionPaperObject.SetActive(false);
+        
+        missionPaperConfirmBtn.onClick.AddListener(missionPaperConfirmOnClick);
     }
 
     // Update is called once per frame
@@ -45,10 +49,17 @@ public class MissionBoardUtility : PageUtility
         missionPaperObject.SetActive(false);
     }
 
-    private void startInputMissionBtnOnclick()
+    private void startInputMissionBtnOnClick()
     {
         missionPaperObject.SetActive(true);
         startInputMissionBtnObject.SetActive(false);
         shortcutObject.SetActive(false);
+    }
+
+    private void missionPaperConfirmOnClick()
+    {
+        missionPaperObject.SetActive(false);
+        startInputMissionBtnObject.SetActive(true);
+        shortcutObject.SetActive(true);
     }
 }
