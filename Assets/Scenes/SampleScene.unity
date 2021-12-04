@@ -258,7 +258,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303117060}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.04, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.9952, y: 1.9952, z: 1.9952}
   m_Children:
   - {fileID: 1299168769}
@@ -1021,7 +1021,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30.67, y: -14.06}
+  m_AnchoredPosition: {x: -30.67, y: 46.539974}
   m_SizeDelta: {x: 160, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &669094180
@@ -1588,6 +1588,7 @@ MonoBehaviour:
   startInputMissionBtnObject: {fileID: 1866906739}
   missionPaperObject: {fileID: 303117060}
   missionPaperConfirmBtn: {fileID: 2009036297}
+  missionPaperScrollbar: {fileID: 669094180}
 --- !u!114 &842697966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1840,7 +1841,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 29.8, y: 6.2}
+  m_AnchoredPosition: {x: 29.8, y: 66.79997}
   m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1280164801
@@ -2429,7 +2430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 15.8, y: 83.4}
+  m_AnchoredPosition: {x: 15.8, y: 144}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1531954343
@@ -3122,7 +3123,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -30.67, y: -67}
+  m_AnchoredPosition: {x: -30.67, y: -6.4000244}
   m_SizeDelta: {x: 90.2314, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2009036297

@@ -10,15 +10,18 @@ public class MissionBoardUtility : PageUtility
     [SerializeField] private GameObject startInputMissionBtnObject;
     [SerializeField] private GameObject missionPaperObject;
     [SerializeField] private Button missionPaperConfirmBtn;
+    [SerializeField] private Scrollbar missionPaperScrollbar;
 
     private Button startInputMissionBtn;
 
     private Text startInputMissionBtnText;
+    private float timeCounter = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
         base.utilityStart();
+        
         startInputMissionBtn = startInputMissionBtnObject.GetComponent<Button>();
         startInputMissionBtn.onClick.AddListener(startInputMissionBtnOnClick);
         startInputMissionBtnObject.SetActive(false);
@@ -48,14 +51,16 @@ public class MissionBoardUtility : PageUtility
     private void startInputMissionBtnOnClick()
     {
         missionPaperObject.SetActive(true);
+        missionPaperConfirmBtn.gameObject.SetActive(true);
         startInputMissionBtnObject.SetActive(false);
         shortcutObject.SetActive(false);
     }
 
     private void missionPaperConfirmOnClick()
     {
-        missionPaperObject.SetActive(false);
+        missionPaperConfirmBtn.gameObject.SetActive(false);
         startInputMissionBtnObject.SetActive(true);
+        missionPaperScrollbar.interactable = false;
         startInputMissionBtnText.text = "重置新任務";
         shortcutObject.SetActive(true);
     }
