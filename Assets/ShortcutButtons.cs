@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Button)), RequireComponent(typeof(EventTrigger))]
-public class ShortcutButtons : MonoBehaviour, HoveringEventTrigger.TriggerOnHover
+public class ShortcutButtons : MonoBehaviour, EventTriggerSettings.TriggerOnHover
 {
     private static GameObject backgroundObject = null;
     private static SpriteRenderer backgroundSprite = null;
@@ -87,6 +87,6 @@ public class ShortcutButtons : MonoBehaviour, HoveringEventTrigger.TriggerOnHove
     private void setEventTrigger()
     {
         _eventTrigger = gameObject.GetComponent<EventTrigger>();
-        HoveringEventTrigger.setEventTriggerHoveringScale(this);
+        EventTriggerSettings.setEventTriggerHoveringScale(this);
     }
 }

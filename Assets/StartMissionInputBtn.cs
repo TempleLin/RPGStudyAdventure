@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(EventTrigger))]
-public class StartMissionInputBtn : MonoBehaviour, HoveringEventTrigger.TriggerOnHover
+public class StartMissionInputBtn : MonoBehaviour, EventTriggerSettings.TriggerOnHover
 {
     private EventTrigger _eventTrigger;
     public EventTrigger EventTrigger => _eventTrigger;
@@ -13,7 +13,7 @@ public class StartMissionInputBtn : MonoBehaviour, HoveringEventTrigger.TriggerO
     void Start()
     {
         _eventTrigger = GetComponent<EventTrigger>();
-        HoveringEventTrigger.setEventTriggerHoveringScale(this);
+        EventTriggerSettings.setEventTriggerHoveringScale(this);
     }
 
     // Update is called once per frame

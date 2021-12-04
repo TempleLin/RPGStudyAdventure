@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public static class HoveringEventTrigger
+public static class EventTriggerSettings
 {
     public interface TriggerOnHover
     {
