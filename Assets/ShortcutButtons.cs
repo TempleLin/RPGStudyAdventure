@@ -89,15 +89,4 @@ public class ShortcutButtons : MonoBehaviour, HoveringEventTrigger.TriggerOnHove
         _eventTrigger = gameObject.GetComponent<EventTrigger>();
         HoveringEventTrigger.setEventTriggerHoveringScale(this);
     }
-
-    // //From HoveringEventTrigger.TriggerOnHover
-    // public void onHoverEntry(BaseEventData baseEventData)
-    // {
-    //     throw new System.NotImplementedException();
-    // }
-    // //From HoveringEventTrigger.TriggerOnHover
-    // public void onExitHoverEntry(BaseEventData baseEventData)
-    // {
-    //     throw new System.NotImplementedException();
-    // }
 }

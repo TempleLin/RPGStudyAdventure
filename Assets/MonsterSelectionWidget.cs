@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class MonsterSelectionWidget : MonoBehaviour
 {
+    [SerializeField]
     private Camera camera = null;
     private BoxCollider2D _boxCollider2D;
 
@@ -16,10 +17,6 @@ public class MonsterSelectionWidget : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (!camera)
-        {
-            camera = Camera.main;
-        }
         _boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
