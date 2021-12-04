@@ -59,6 +59,8 @@ public class MissionBoardUtility : PageUtility
     public override void getCalledStart()
     {
         startInputMissionBtnObject.SetActive(true);
+        if (countDownTimer > 0)
+            missionPaperObject.SetActive(true);
     }
 
     public override void getCalledUpdate()
