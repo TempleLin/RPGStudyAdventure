@@ -8,6 +8,7 @@ public class InventorySlotItem : MonoBehaviour, EventTriggerSettings.TriggerOnDr
 {
     private EventTrigger _eventTrigger;
     private Vector3 originalPosition;
+    private RectTransform _rectTransform;
     public EventTrigger EventTrigger
     {
         get => _eventTrigger;
@@ -18,7 +19,8 @@ public class InventorySlotItem : MonoBehaviour, EventTriggerSettings.TriggerOnDr
     {
         _eventTrigger = gameObject.AddComponent<EventTrigger>();
         var tempPosition = transform.localPosition;
-        originalPosition = new Vector3(tempPosition.x, tempPosition.y, tempPosition.z);
+        _rectTransform = gameObject.GetComponent<RectTransform>();
+        originalPosition = new Vector3(_rectTransform.localPosition.x, _rectTransform.localPosition.y, _rectTransform.localPosition.z);
     }
 
     public void onHoverEntry(BaseEventData baseEventData)
@@ -36,11 +38,11 @@ public class InventorySlotItem : MonoBehaviour, EventTriggerSettings.TriggerOnDr
 
     public void onDrag(BaseEventData baseEventData)
     {
-        transform.localPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y, originalPosition.z);
+        _rectTransform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, originalPosition.z);
     }
 
     public void onDrop(BaseEventData baseEventData)
     {
-        // throw new System.NotImplementedException();
+        _rectTransform.localPosition = new Vector3(originalPosition.x, originalPosition.y, originalPosition.z);
     }
 }
