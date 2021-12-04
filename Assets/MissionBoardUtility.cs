@@ -20,6 +20,7 @@ public class MissionBoardUtility : PageUtility
     // private bool startCounting = false;
     // private float timeCounter = 0f;
     // private bool startCount = false;
+    private float countDownTimer = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,16 @@ public class MissionBoardUtility : PageUtility
         // {
             // Debug.Log("Test");
         // }
+        if (countDownTimer != 0)
+        {
+            countDownTimer -= (Time.deltaTime / 3600f / 24f > 0) ? Time.deltaTime / 3600f / 24f : countDownTimer;
+            _missionSettingController.CountDownValueShow = countDownTimer * 24f;
+            Debug.Log("countDownTimer:" + countDownTimer);
+        }
+        else
+        {
+            _missionSettingController.StartCountingDown = false;
+        }
     }
 
     public override void getCalledStart()
@@ -76,6 +87,8 @@ public class MissionBoardUtility : PageUtility
         startInputMissionBtnText.text = "重置新任務";
         shortcutObject.SetActive(true);
         _missionSettingController.StartCountingDown = true;
+        countDownTimer = missionPaperScrollbar.value;
+        Debug.Log("countDownTimer:" + countDownTimer);
         // startCounting = true;
         // StartCoroutine(userInputTimer(scro))
     }

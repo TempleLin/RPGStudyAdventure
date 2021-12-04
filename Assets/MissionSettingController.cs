@@ -13,6 +13,7 @@ public class MissionSettingController : MonoBehaviour
     private string textDefaultStr;
 
     public bool StartCountingDown { get; set; } = false;
+    public float CountDownValueShow { get; set; } = 0f;
 
     void Start()
     {
@@ -20,7 +21,6 @@ public class MissionSettingController : MonoBehaviour
         textDefaultStr = text.text;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!StartCountingDown)
@@ -31,12 +31,9 @@ public class MissionSettingController : MonoBehaviour
         else
         {
             Debug.Log("StartCountingDown");
-            _scrollbar.value -= (_scrollbar.value - (Time.deltaTime / 3600f / 24f) >= 0)? Time.deltaTime / 3600f / 24f : _scrollbar.value;
-            text.text = (_scrollbar.value * 24f).ToString();
-            if (_scrollbar.value == 0f)
-            {
-                StartCountingDown = false;
-            }
+            // _scrollbar.value -= (_scrollbar.value - (Time.deltaTime / 3600f / 24f) >= 0)? Time.deltaTime / 3600f / 24f : _scrollbar.value;
+            _scrollbar.value = CountDownValueShow;
+            text.text = (_scrollbar.value).ToString();
         }
     }
 }
