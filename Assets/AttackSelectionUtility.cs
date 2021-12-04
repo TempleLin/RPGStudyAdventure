@@ -13,6 +13,7 @@ public class AttackSelectionUtility : PageUtility
     // Start is called before the first frame update
     void Start()
     {
+        base.utilityStart();
         monsterSelectionWidgets.ForEach(selections => selections.gameObject.SetActive(false));
     }
 

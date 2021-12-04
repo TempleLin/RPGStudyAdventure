@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class MainhallUtility : PageUtility
 {
-    [SerializeField] private GameObject mainCharObject;
     // Start is called before the first frame update
     void Start()
     {
-        
+        base.utilityStart();
     }
 
     // Update is called once per frame
@@ -19,7 +18,7 @@ public class MainhallUtility : PageUtility
 
     public override void getCalledStart()
     {
-        mainCharObject.SetActive(true);
+        _utilitiesSharedData.MainCharObject.SetActive(true);
     }
 
     public override void getCalledUpdate()
@@ -29,6 +28,6 @@ public class MainhallUtility : PageUtility
 
     public override void getCalledStop()
     {
-        mainCharObject.SetActive(false);
+        _utilitiesSharedData.MainCharObject.SetActive(false);
     }
 }

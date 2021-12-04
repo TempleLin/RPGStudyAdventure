@@ -18,6 +18,7 @@ public class MissionBoardUtility : PageUtility
     // Start is called before the first frame update
     void Start()
     {
+        base.utilityStart();
         startInputMissionBtn = startInputMissionBtnObject.GetComponent<Button>();
         startInputMissionBtn.onClick.AddListener(startInputMissionBtnOnClick);
         startInputMissionBtnObject.SetActive(false);
@@ -47,7 +48,6 @@ public class MissionBoardUtility : PageUtility
     public override void getCalledStop()
     {
         startInputMissionBtnObject.SetActive(false);
-        startInputMissionBtnObject.SetActive(true);
         missionPaperObject.SetActive(false);
     }
 

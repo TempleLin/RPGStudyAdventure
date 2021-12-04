@@ -9,7 +9,8 @@ public class ShopUtility : PageUtility
     // Start is called before the first frame update
     void Start()
     {
-        
+        base.utilityStart();
+
     }
 
     // Update is called once per frame

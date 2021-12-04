@@ -1570,7 +1570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63801622d1ca81647987027dd9574894, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundObject: {fileID: 461087924}
+  mainCharObject: {fileID: 1006267276}
 --- !u!114 &842697965
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,9 +5,9 @@ using UnityEngine;
 public class UtilitiesSharedData : MonoBehaviour
 {
     [SerializeField]
-    private GameObject backgroundObject;
+    private GameObject mainCharObject;
 
-    public GameObject BackgroundObject => backgroundObject;
+    public GameObject MainCharObject => mainCharObject;
     // Start is called before the first frame update
     void Start()
     {

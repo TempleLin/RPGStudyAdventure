@@ -77,8 +77,8 @@ public class ShortcutButtons : MonoBehaviour, HoveringEventTrigger.TriggerOnHove
         if (currentPage != pageUtilities[index])
         {
             backgroundSprite.sprite = pageUtilities[index].Background;
-            pageUtilities[index].getCalledStart();
             currentPage.getCalledStop();
+            pageUtilities[index].getCalledStart();
             currentPage = pageUtilities[index];
         }
     }
