@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class CharStatusUtility : PageUtility
 {
-    // Start is called before the first frame update
+    [SerializeField] private GameObject inventoryObject;
+    
     void Start()
     {
         base.utilityStart();
+        // inventoryObject.
     }
 
-    // Update is called once per frame
     void Update()
     {
         

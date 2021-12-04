@@ -14,6 +14,9 @@ public class InventorySystem : MonoBehaviour
     [SerializeField]
     private GameObject slotPrefab;
 
+    [SerializeField]
+    private GameObject inventoryObject;
+
     [SerializeField] private List<Sprite> itemsImages;
 
     private List<InventorySlot> slots;
@@ -28,7 +31,7 @@ public class InventorySystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            var instantiated = Instantiate(slotPrefab, transform);
+            var instantiated = Instantiate(slotPrefab, inventoryObject.transform);
             var spriteHolder = instantiated.transform.GetChild(1).GetComponent<Image>();
             spriteHolder.sprite = itemsImages[0];
             slots.Add(new InventorySlot

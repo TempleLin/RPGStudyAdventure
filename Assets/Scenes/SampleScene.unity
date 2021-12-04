@@ -1631,6 +1631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 21300000, guid: 0727efc9cf2e28541bf176124b222388, type: 3}
+  inventoryObject: {fileID: 0}
 --- !u!114 &842697969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2146,6 +2147,53 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1346660321
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1346660323}
+  - component: {fileID: 1346660322}
+  m_Layer: 0
+  m_Name: InventorySystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1346660322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346660321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c0a4eb051d77d44b928bfea27f1ddd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotPrefab: {fileID: 1710030761410798473, guid: 19459112515af604fb99b3ac8e0c4e18, type: 3}
+  inventoryObject: {fileID: 1530431728}
+  itemsImages:
+  - {fileID: 21300000, guid: 02c64784f204a224b9c1f184b56532c2, type: 3}
+--- !u!4 &1346660323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346660321}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 613.10583, y: 225.8247, z: -222.11131}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1366873259
 GameObject:
   m_ObjectHideFlags: 0
@@ -2280,7 +2328,6 @@ GameObject:
   - component: {fileID: 1530431729}
   - component: {fileID: 1530431731}
   - component: {fileID: 1530431730}
-  - component: {fileID: 1530431732}
   m_Layer: 5
   m_Name: Inventory
   m_TagString: Untagged
@@ -2345,21 +2392,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 0
---- !u!114 &1530431732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530431728}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c0a4eb051d77d44b928bfea27f1ddd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slotPrefab: {fileID: 1710030761410798473, guid: 19459112515af604fb99b3ac8e0c4e18, type: 3}
-  itemsImages:
-  - {fileID: 21300000, guid: 02c64784f204a224b9c1f184b56532c2, type: 3}
 --- !u!1 &1531954341
 GameObject:
   m_ObjectHideFlags: 0
