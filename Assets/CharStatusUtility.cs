@@ -9,7 +9,7 @@ public class CharStatusUtility : PageUtility
     void Start()
     {
         base.utilityStart();
-        // inventoryObject.
+        inventoryObject.SetActive(false);
     }
 
     void Update()
@@ -19,6 +19,7 @@ public class CharStatusUtility : PageUtility
 
     public override void getCalledStart()
     {
+        inventoryObject.SetActive(true);
         _utilitiesSharedData.MainCharObject.SetActive(true);
     }
 
@@ -28,6 +29,7 @@ public class CharStatusUtility : PageUtility
 
     public override void getCalledStop()
     {
+        inventoryObject.SetActive(false);
         _utilitiesSharedData.MainCharObject.SetActive(false);
     }
 }

@@ -1631,7 +1631,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 21300000, guid: 0727efc9cf2e28541bf176124b222388, type: 3}
-  inventoryObject: {fileID: 0}
+  inventoryObject: {fileID: 1530431728}
 --- !u!114 &842697969
 MonoBehaviour:
   m_ObjectHideFlags: 0
