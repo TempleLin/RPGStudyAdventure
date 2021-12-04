@@ -13,7 +13,11 @@ public class ShortcutButtons : MonoBehaviour, EventTriggerSettings.TriggerOnHove
     private static PageUtility currentPage;
     private RectTransform _rectTransform;
     private EventTrigger _eventTrigger;
-    public EventTrigger EventTrigger => _eventTrigger;
+    public EventTrigger EventTrigger
+    {
+        get => _eventTrigger;
+        set => _eventTrigger = value;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -39,14 +43,12 @@ public class ShortcutButtons : MonoBehaviour, EventTriggerSettings.TriggerOnHove
     {
         var tempLocalScale = _rectTransform.localScale;
         _rectTransform.localScale = new Vector3(tempLocalScale.x + .3f, tempLocalScale.y + .3f, tempLocalScale.z);
-        Debug.Log("OnShortcutHover");
     }
 
     public void onExitHoverEntry(BaseEventData baseEventData) //Event trigger function
     {
         var tempLocalScale = _rectTransform.localScale;
         _rectTransform.localScale = new Vector3(tempLocalScale.x - .3f, tempLocalScale.y - .3f, tempLocalScale.z);
-        Debug.Log("OnShortcutExitHover");
     }
 
     public void switchToMainhall()

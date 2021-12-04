@@ -7,7 +7,11 @@ using UnityEngine.EventSystems;
 public class StartMissionInputBtn : MonoBehaviour, EventTriggerSettings.TriggerOnHover
 {
     private EventTrigger _eventTrigger;
-    public EventTrigger EventTrigger => _eventTrigger;
+    public EventTrigger EventTrigger
+    {
+        get => _eventTrigger;
+        set => _eventTrigger = value;
+    }
 
     // Start is called before the first frame update
     void Start()
