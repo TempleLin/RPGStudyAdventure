@@ -10,11 +10,13 @@ public class AttackSelectionUtility : PageUtility
     [SerializeField]
     private List<MonsterSelectionWidget> monsterSelectionWidgets;
     public List<MonsterSelectionWidget> MonsterSelectionWidgets => monsterSelectionWidgets;
+    private BattleUtility _battleUtility;
 
     private bool instantiatedHoveringEventTrigger = false;
     // Start is called before the first frame update
     void Start()
     {
+        _battleUtility = GetComponent<BattleUtility>();
         base.utilityStart();
         monsterSelectionWidgets.ForEach(selections =>
         {
@@ -31,7 +33,10 @@ public class AttackSelectionUtility : PageUtility
         monsterSelectionWidgets.ForEach(selections =>
         {
             selections.checkOnHover(hit);
-            selections.checkOnClick();
+            if (selections.checkOnClick())
+            {
+                _battleUtility.getCalledStart();
+            }
         });
     }
 

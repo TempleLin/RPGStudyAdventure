@@ -22,7 +22,7 @@ public class MonsterSelectionWidget : MonoBehaviour
         _boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
-    public void checkOnHover(RaycastHit2D hit)
+    public bool checkOnHover(RaycastHit2D hit)
     {
         lastOnHoverWidget = hit ? hit.transform.gameObject : null;
 
@@ -35,6 +35,8 @@ public class MonsterSelectionWidget : MonoBehaviour
                 onScaled = true;
                 Debug.Log("OnHover " + gameObject.name);
             }
+
+            return true;
         }
         else
         {
@@ -44,17 +46,22 @@ public class MonsterSelectionWidget : MonoBehaviour
                 transform.localScale = new Vector3(tempScale.x - onScaleRange, tempScale.y - onScaleRange, tempScale.z);
                 onScaled = false;
             }
+
+            return false;
         }
     }
 
-    public void checkOnClick()
+    public bool checkOnClick()
     {
         if (onScaled)
         {
             if (Input.GetMouseButtonDown(0))
             {
                 Debug.Log("OnClick " + gameObject.name);
+                return true;
             }
         }
+
+        return false;
     }
 }

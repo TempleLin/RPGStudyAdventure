@@ -2406,6 +2406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCharObject: {fileID: 1006267276}
+  backgroundSpriteRenderer: {fileID: 461087925}
 --- !u!114 &842697965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2482,7 +2483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fccf1a865d0bf124aa3b68f103643780, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background: {fileID: 0}
+  background: {fileID: 21300000, guid: 94793f9ca392b2e4a926b024d4a08890, type: 3}
 --- !u!1 &979557101
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class BattleUtility : PageUtility
 {
+    private AttackSelectionUtility _attackSelectionUtility;
     void Start()
     {
         base.utilityStart();
+        _attackSelectionUtility = GetComponent<AttackSelectionUtility>();
     }
 
     // Update is called once per frame
@@ -17,7 +19,9 @@ public class BattleUtility : PageUtility
 
     public override void getCalledStart()
     {
-        throw new System.NotImplementedException();
+        _attackSelectionUtility.getCalledStop();
+        _attackSelectionUtility.getCalledStop();
+        _utilitiesSharedData.BackgroundSpriteRenderer.sprite = background;
     }
 
     public override void getCalledUpdate()

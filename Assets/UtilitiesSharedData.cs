@@ -8,4 +8,6 @@ public class UtilitiesSharedData : MonoBehaviour
     private GameObject mainCharObject;
 
     public GameObject MainCharObject => mainCharObject;
+    [SerializeField] private SpriteRenderer backgroundSpriteRenderer;
+    public SpriteRenderer BackgroundSpriteRenderer => backgroundSpriteRenderer;
 }
