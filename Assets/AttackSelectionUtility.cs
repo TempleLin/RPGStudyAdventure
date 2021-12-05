@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class AttackSelectionUtility : PageUtility
 {
+    [SerializeField] private Camera camera;
     [SerializeField]
     private List<MonsterSelectionWidget> monsterSelectionWidgets;
     public List<MonsterSelectionWidget> MonsterSelectionWidgets => monsterSelectionWidgets;
@@ -26,7 +28,9 @@ public class AttackSelectionUtility : PageUtility
     {
         monsterSelectionWidgets.ForEach(selections =>
         {
-            selections.checkOnHover();
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
+            selections.checkOnHover(hit);
             selections.checkOnClick();
         });
     }

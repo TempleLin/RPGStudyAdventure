@@ -22,10 +22,8 @@ public class MonsterSelectionWidget : MonoBehaviour
         _boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
-    public void checkOnHover()
+    public void checkOnHover(RaycastHit2D hit)
     {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);
         lastOnHoverWidget = hit ? hit.transform.gameObject : null;
 
         if (lastOnHoverWidget == gameObject)
