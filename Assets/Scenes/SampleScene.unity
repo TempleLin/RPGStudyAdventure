@@ -2598,10 +2598,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 614cbf18bba75ff418ad103c1fa87483, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
-  agility: 0
-  attackDmg: 0
-  defense: 0
+  health: 100
+  agility: 3
+  attackDmg: 8
+  defense: 4
 --- !u!1 &1006267276
 GameObject:
   m_ObjectHideFlags: 0

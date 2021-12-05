@@ -25,8 +25,6 @@ public class BattleUtility : PageUtility
     {
         if (startFight)
         {
-            Debug.Log("FightWaitCounter + Time.deltaTime: " + fightWaitCounter + Time.deltaTime);
-            Debug.Log("FightSpeed: " + fightSpeed);
             if (fightWaitCounter + Time.deltaTime < (float)fightSpeed)
             {
                 fightWaitCounter += Time.deltaTime;
@@ -38,6 +36,23 @@ public class BattleUtility : PageUtility
                     case 0:
                         mainCharSpriteRenderer.color = Color.red;
                         enemySpriteRenderer.color = Color.white;
+
+                        float randomDodgeChance = Random.Range(1f, 1000f);
+                        if (randomDodgeChance <= mainCharProperties.Agility)
+                        {
+                            characterDodgeAttack(mainCharProperties);
+                        }
+                        else
+                        {
+                            mainCharProperties.Health -= ((enemyProperties.AttackDmg - mainCharProperties.Defense > 0)?
+                                enemyProperties.AttackDmg - mainCharProperties.Defense : 1);
+                            Debug.Log("MainCharHealth: " + mainCharProperties.Health);
+                            if (mainCharProperties.Health <= 0)
+                            {
+                                mainCharProperties.resetProperties();
+                                getCalledStop();
+                            }
+                        }
                         break;
                     case 1:
                         mainCharSpriteRenderer.color = Color.white;
@@ -46,7 +61,6 @@ public class BattleUtility : PageUtility
                 }
 
                 nextGetAttacked = (nextGetAttacked + 1) % 2;
-                Debug.Log(fightWaitCounter);
                 fightWaitCounter = 0f;
             }
         }
@@ -68,11 +82,21 @@ public class BattleUtility : PageUtility
 
     public override void getCalledUpdate()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public override void getCalledStop()
     {
-        
+        _utilitiesSharedData.BackgroundSpriteRenderer.sprite = _attackSelectionUtility.Background;
+        _utilitiesSharedData.EnemyMonsterObject.SetActive(false);
+        _utilitiesSharedData.MainCharObject.SetActive(false);
+        _utilitiesSharedData.ShortcutObject.SetActive(true);
+        startFight = false;
+        _attackSelectionUtility.getCalledStart();
+    }
+
+    private void characterDodgeAttack(CharacterProperties characterProperties)
+    {
+        Debug.Log(characterProperties.gameObject.name + " dodged!");
     }
 }

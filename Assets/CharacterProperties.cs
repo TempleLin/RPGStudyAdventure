@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,7 @@ public class CharacterProperties : MonoBehaviour
     [SerializeField] private int agility;
     [SerializeField] private int attackDmg;
     [SerializeField] private int defense;
+    private int[] resetBuffer;
 
     public int Health
     {
@@ -31,5 +33,24 @@ public class CharacterProperties : MonoBehaviour
     {
         get => defense;
         set => defense = value;
+    }
+
+    private void Start()
+    {
+        resetBuffer = new[]
+        {
+            health,
+            agility,
+            attackDmg,
+            defense
+        };
+    }
+
+    public void resetProperties()
+    {
+        health = resetBuffer[0];
+        agility = resetBuffer[1];
+        attackDmg = resetBuffer[2];
+        defense = resetBuffer[3];
     }
 }
