@@ -79,7 +79,6 @@ public class MissionBoardUtility : PageUtility
         missionPaperObject.SetActive(true);
         missionPaperConfirmBtn.gameObject.SetActive(true);
         startInputMissionBtnObject.SetActive(false);
-        shortcutObject.SetActive(false);
 
         if (startInputMissionBtnText.text == startInputMissionBtnTextToChange[1])
         {
@@ -95,11 +94,8 @@ public class MissionBoardUtility : PageUtility
         missionPaperConfirmBtn.gameObject.SetActive(false);
         startInputMissionBtnObject.SetActive(true);
         startInputMissionBtnText.text = startInputMissionBtnTextToChange[1];
-        shortcutObject.SetActive(true);
         _missionSettingController.StartCountingDown = true;
         countDownTimer = missionPaperScrollbar.value;
         Debug.Log("countDownTimer:" + countDownTimer);
     }
-    
-
 }
