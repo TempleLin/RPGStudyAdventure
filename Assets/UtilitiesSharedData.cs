@@ -6,6 +6,8 @@ public class UtilitiesSharedData : MonoBehaviour
 {
     [SerializeField] private GameObject mainCharObject;
     public GameObject MainCharObject => mainCharObject;
+    [SerializeField] private GameObject shortcutObject;
+    public GameObject ShortcutObject => shortcutObject;
     public GameObject EnemyMonsterObject { get; set; }
     
         

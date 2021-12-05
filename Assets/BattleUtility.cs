@@ -20,10 +20,10 @@ public class BattleUtility : PageUtility
     public override void getCalledStart()
     {
         _attackSelectionUtility.getCalledStop();
-        _attackSelectionUtility.getCalledStop();
         _utilitiesSharedData.BackgroundSpriteRenderer.sprite = background;
         _utilitiesSharedData.EnemyMonsterObject.SetActive(true);
         _utilitiesSharedData.MainCharObject.SetActive(true);
+        _utilitiesSharedData.ShortcutObject.SetActive(false);
     }
 
     public override void getCalledUpdate()
@@ -33,6 +33,6 @@ public class BattleUtility : PageUtility
 
     public override void getCalledStop()
     {
-        throw new System.NotImplementedException();
+        
     }
 }
