@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharStatusUtility : PageUtility
+public class MainCharStatusUtility : PageUtility
 {
     [SerializeField] private GameObject inventoryObject;
     private GameObject mainChar;

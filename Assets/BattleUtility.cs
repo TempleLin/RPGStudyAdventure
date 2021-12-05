@@ -5,6 +5,7 @@ using UnityEngine;
 public class BattleUtility : PageUtility
 {
     private AttackSelectionUtility _attackSelectionUtility;
+    private bool startFight = false;
     void Start()
     {
         base.utilityStart();
@@ -14,7 +15,10 @@ public class BattleUtility : PageUtility
     // Update is called once per frame
     void Update()
     {
-        
+        if (startFight)
+        {
+            
+        }
     }
 
     public override void getCalledStart()
@@ -24,6 +28,7 @@ public class BattleUtility : PageUtility
         _utilitiesSharedData.EnemyMonsterObject.SetActive(true);
         _utilitiesSharedData.MainCharObject.SetActive(true);
         _utilitiesSharedData.ShortcutObject.SetActive(false);
+        startFight = true;
     }
 
     public override void getCalledUpdate()
