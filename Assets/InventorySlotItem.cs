@@ -20,7 +20,7 @@ public class InventorySlotItem : MonoBehaviour, EventTriggerSettings.TriggerOnDr
         _eventTrigger = gameObject.AddComponent<EventTrigger>();
         var tempPosition = transform.localPosition;
         _rectTransform = gameObject.GetComponent<RectTransform>();
-        originalPosition = new Vector3(_rectTransform.localPosition.x, _rectTransform.localPosition.y, _rectTransform.localPosition.z);
+        originalPosition = _rectTransform.localPosition;
     }
 
     public void onHoverEntry(BaseEventData baseEventData)
