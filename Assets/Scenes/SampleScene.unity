@@ -1505,6 +1505,7 @@ GameObject:
   m_Component:
   - component: {fileID: 627761825}
   - component: {fileID: 627761826}
+  - component: {fileID: 627761827}
   m_Layer: 0
   m_Name: Succubus
   m_TagString: Untagged
@@ -1577,6 +1578,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &627761827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627761824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614cbf18bba75ff418ad103c1fa87483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1000
+  agility: 7
+  attackDmg: 13
+  defense: 9
 --- !u!1 &669094178
 GameObject:
   m_ObjectHideFlags: 0
@@ -2406,6 +2423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCharObject: {fileID: 1006267276}
+  shortcutObject: {fileID: 1326845943}
   backgroundSpriteRenderer: {fileID: 461087925}
 --- !u!114 &842697965
 MonoBehaviour:
@@ -2466,7 +2484,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 842697961}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7355ada4646279e4a862398bcf972cac, type: 3}
+  m_Script: {fileID: 11500000, guid: 382de121e86431a44a0d7b6b11fbeaa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 21300000, guid: 0727efc9cf2e28541bf176124b222388, type: 3}
@@ -2484,6 +2502,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 21300000, guid: 94793f9ca392b2e4a926b024d4a08890, type: 3}
+  fightSpeed: 1
 --- !u!1 &979557101
 GameObject:
   m_ObjectHideFlags: 0
@@ -2494,6 +2513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 979557102}
   - component: {fileID: 979557103}
+  - component: {fileID: 979557104}
   m_Layer: 0
   m_Name: SquareHeadMan
   m_TagString: Untagged
@@ -2566,6 +2586,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &979557104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979557101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614cbf18bba75ff418ad103c1fa87483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  agility: 0
+  attackDmg: 0
+  defense: 0
 --- !u!1 &1006267276
 GameObject:
   m_ObjectHideFlags: 0
@@ -2576,6 +2612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1006267278}
   - component: {fileID: 1006267277}
+  - component: {fileID: 1006267279}
   m_Layer: 0
   m_Name: MainChar
   m_TagString: Untagged
@@ -2648,6 +2685,22 @@ Transform:
   m_Father: {fileID: 230363955}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1006267279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006267276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614cbf18bba75ff418ad103c1fa87483, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  agility: 1
+  attackDmg: 5
+  defense: 5
 --- !u!1001 &1070004983
 PrefabInstance:
   m_ObjectHideFlags: 0
