@@ -14,7 +14,11 @@ public class AttackSelectionUtility : PageUtility
     void Start()
     {
         base.utilityStart();
-        monsterSelectionWidgets.ForEach(selections => selections.gameObject.SetActive(false));
+        monsterSelectionWidgets.ForEach(selections =>
+        {
+            selections.gameObject.SetActive(false);
+            selections.MonsterObject.SetActive(false);
+        });
     }
 
     // Update is called once per frame

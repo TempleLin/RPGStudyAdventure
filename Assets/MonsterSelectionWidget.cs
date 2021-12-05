@@ -8,6 +8,8 @@ public class MonsterSelectionWidget : MonoBehaviour
     [SerializeField]
     private Camera camera = null;
     private BoxCollider2D _boxCollider2D;
+    [SerializeField] private GameObject monsterObject;
+    public GameObject MonsterObject => monsterObject;
 
     private bool onScaled = false;
 
