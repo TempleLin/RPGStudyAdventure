@@ -35,6 +35,7 @@ public class AttackSelectionUtility : PageUtility
             selections.checkOnHover(hit);
             if (selections.checkOnClick())
             {
+                _utilitiesSharedData.EnemyMonsterObject = selections.MonsterObject;
                 _battleUtility.getCalledStart();
             }
         });

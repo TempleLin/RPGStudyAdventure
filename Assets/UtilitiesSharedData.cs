@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class UtilitiesSharedData : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject mainCharObject;
-
+    [SerializeField] private GameObject mainCharObject;
     public GameObject MainCharObject => mainCharObject;
+    public GameObject EnemyMonsterObject { get; set; }
+    
+        
     [SerializeField] private SpriteRenderer backgroundSpriteRenderer;
     public SpriteRenderer BackgroundSpriteRenderer => backgroundSpriteRenderer;
 }

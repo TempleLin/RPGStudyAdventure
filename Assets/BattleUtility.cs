@@ -22,6 +22,8 @@ public class BattleUtility : PageUtility
         _attackSelectionUtility.getCalledStop();
         _attackSelectionUtility.getCalledStop();
         _utilitiesSharedData.BackgroundSpriteRenderer.sprite = background;
+        _utilitiesSharedData.EnemyMonsterObject.SetActive(true);
+        _utilitiesSharedData.MainCharObject.SetActive(true);
     }
 
     public override void getCalledUpdate()
