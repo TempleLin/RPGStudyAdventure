@@ -21,11 +21,9 @@ public class MissionSettingController : MonoBehaviour {
 
     void Update() {
         if (!StartCountingDown) {
-            Debug.Log("NoStartCountingDown");
             text.text = (_scrollbar.value > 0) ? (_scrollbar.value * 24f) + "小時" : textDefaultStr;
             _scrollbar.interactable = true;
         } else {
-            Debug.Log("StartCountingDown");
             // _scrollbar.value -= (_scrollbar.value - (Time.deltaTime / 3600f / 24f) >= 0)? Time.deltaTime / 3600f / 24f : _scrollbar.value;
             _scrollbar.value = CountDownValueShow;
             text.text = (_scrollbar.value).ToString();

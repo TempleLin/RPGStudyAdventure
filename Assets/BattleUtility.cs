@@ -5,7 +5,7 @@ using UnityEngine;
 public class BattleUtility : PageUtility {
     private AttackSelectionUtility _attackSelectionUtility;
     private bool startFight = false;
-    [SerializeField] private float fightSpeed = .7f;
+    [SerializeField] private float fightSpeed = .4f;
     private float fightWaitCounter = 0f;
     private CharacterProperties mainCharProperties;
     private CharacterProperties enemyProperties;
