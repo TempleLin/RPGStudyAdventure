@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class PageUtility : MonoBehaviour
-{
+public abstract class PageUtility : MonoBehaviour {
     [SerializeField]    
     protected Sprite background;
 
@@ -14,8 +13,7 @@ public abstract class PageUtility : MonoBehaviour
     public abstract void getCalledUpdate();
     public abstract void getCalledStop();
 
-    public void utilityStart()
-    {
+    public void utilityStart() {
         _utilitiesSharedData = GetComponent<UtilitiesSharedData>();
     }
 }

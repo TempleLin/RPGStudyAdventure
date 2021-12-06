@@ -5,23 +5,19 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-public static class EventTriggerSettings
-{
-    public interface TriggerOnHover
-    {
+public static class EventTriggerSettings {
+    public interface TriggerOnHover {
         public EventTrigger @EventTrigger { get; set; }
         public void onHoverEntry(BaseEventData baseEventData);
         public void onExitHoverEntry(BaseEventData baseEventData);
     }
 
-    public interface TriggerOnDragDrop
-    {
+    public interface TriggerOnDragDrop {
         public EventTrigger EventTrigger { get; set; }
         public void onDrag(BaseEventData baseEventData);
         public void onDrop(BaseEventData baseEventData);
     }
-    public static void setEventTriggerHoveringScale(TriggerOnHover triggerOnHover)
-    {
+    public static void setEventTriggerHoveringScale(TriggerOnHover triggerOnHover) {
         EventTrigger.Entry onHoverEntry = new EventTrigger.Entry {eventID = EventTriggerType.PointerEnter};
         onHoverEntry.callback.AddListener(triggerOnHover.onHoverEntry);
         triggerOnHover.EventTrigger.triggers.Add(onHoverEntry);
@@ -31,8 +27,7 @@ public static class EventTriggerSettings
         triggerOnHover.EventTrigger.triggers.Add(onExitHoverEntry);
     }
 
-    public static void setEventTriggerDragDrop(TriggerOnDragDrop triggerOnDragDrop)
-    {
+    public static void setEventTriggerDragDrop(TriggerOnDragDrop triggerOnDragDrop) {
         EventTrigger.Entry onDrag = new EventTrigger.Entry {eventID = EventTriggerType.Drag};
         onDrag.callback.AddListener(triggerOnDragDrop.onDrag);
         triggerOnDragDrop.EventTrigger.triggers.Add(onDrag);

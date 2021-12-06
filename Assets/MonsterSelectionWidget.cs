@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
-public class MonsterSelectionWidget : MonoBehaviour
-{
+public class MonsterSelectionWidget : MonoBehaviour {
     [SerializeField]
     private Camera camera = null;
     private BoxCollider2D _boxCollider2D;
@@ -17,19 +16,15 @@ public class MonsterSelectionWidget : MonoBehaviour
 
     private static float onScaleRange = .15f;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         _boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
-    public bool checkOnHover(RaycastHit2D hit)
-    {
+    public bool checkOnHover(RaycastHit2D hit) {
         lastOnHoverWidget = hit ? hit.transform.gameObject : null;
 
-        if (lastOnHoverWidget == gameObject)
-        {
-            if (!onScaled)
-            {
+        if (lastOnHoverWidget == gameObject) {
+            if (!onScaled) {
                 var tempScale = transform.localScale;
                 transform.localScale = new Vector3(tempScale.x + onScaleRange, tempScale.y + onScaleRange, tempScale.z);
                 onScaled = true;
@@ -37,11 +32,8 @@ public class MonsterSelectionWidget : MonoBehaviour
             }
 
             return true;
-        }
-        else
-        {
-            if (onScaled)
-            {
+        } else {
+            if (onScaled) {
                 var tempScale = transform.localScale;
                 transform.localScale = new Vector3(tempScale.x - onScaleRange, tempScale.y - onScaleRange, tempScale.z);
                 onScaled = false;
@@ -51,12 +43,9 @@ public class MonsterSelectionWidget : MonoBehaviour
         }
     }
 
-    public bool checkOnClick()
-    {
-        if (onScaled)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
+    public bool checkOnClick() {
+        if (onScaled) {
+            if (Input.GetMouseButtonDown(0)) {
                 Debug.Log("OnClick " + gameObject.name);
                 return true;
             }

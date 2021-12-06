@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleUtility : PageUtility
-{
+public class BattleUtility : PageUtility {
     private AttackSelectionUtility _attackSelectionUtility;
     private bool startFight = false;
     [SerializeField] private float fightSpeed = .7f;
@@ -14,41 +13,31 @@ public class BattleUtility : PageUtility
     private SpriteRenderer enemySpriteRenderer;
     private int nextGetAttacked = 0;
     
-    void Start()
-    {
+    void Start() {
         base.utilityStart();
         _attackSelectionUtility = GetComponent<AttackSelectionUtility>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (startFight)
-        {
-            if (fightWaitCounter + Time.deltaTime < (float)fightSpeed)
-            {
+    void Update() {
+        if (startFight) {
+            if (fightWaitCounter + Time.deltaTime < (float)fightSpeed) {
                 fightWaitCounter += Time.deltaTime;
-            }
-            else
-            {
-                switch (nextGetAttacked)
-                {
+            } else {
+                switch (nextGetAttacked) {
                     case 0:
                         mainCharSpriteRenderer.color = Color.red;
                         enemySpriteRenderer.color = Color.white;
 
                         float randomDodgeChance = Random.Range(1f, 1000f);
-                        if (randomDodgeChance <= mainCharProperties.Agility)
-                        {
+                        if (randomDodgeChance <= mainCharProperties.Agility) {
                             characterDodgeAttack(mainCharProperties);
                         }
-                        else
-                        {
+                        else {
                             mainCharProperties.Health -= ((enemyProperties.AttackDmg - mainCharProperties.Defense > 0)?
                                 enemyProperties.AttackDmg - mainCharProperties.Defense : 1);
                             Debug.Log("MainCharHealth: " + mainCharProperties.Health);
-                            if (mainCharProperties.Health <= 0)
-                            {
+                            if (mainCharProperties.Health <= 0) {
                                 mainCharProperties.resetProperties();
                                 getCalledStop();
                             }
@@ -66,8 +55,7 @@ public class BattleUtility : PageUtility
         }
     }
 
-    public override void getCalledStart()
-    {
+    public override void getCalledStart() {
         _attackSelectionUtility.getCalledStop();
         _utilitiesSharedData.BackgroundSpriteRenderer.sprite = background;
         _utilitiesSharedData.EnemyMonsterObject.SetActive(true);
@@ -80,13 +68,11 @@ public class BattleUtility : PageUtility
         enemySpriteRenderer = _utilitiesSharedData.EnemyMonsterObject.GetComponent<SpriteRenderer>();
     }
 
-    public override void getCalledUpdate()
-    {
+    public override void getCalledUpdate() {
         
     }
 
-    public override void getCalledStop()
-    {
+    public override void getCalledStop() {
         _utilitiesSharedData.BackgroundSpriteRenderer.sprite = _attackSelectionUtility.Background;
         _utilitiesSharedData.EnemyMonsterObject.SetActive(false);
         _utilitiesSharedData.MainCharObject.SetActive(false);
@@ -95,8 +81,7 @@ public class BattleUtility : PageUtility
         _attackSelectionUtility.getCalledStart();
     }
 
-    private void characterDodgeAttack(CharacterProperties characterProperties)
-    {
+    private void characterDodgeAttack(CharacterProperties characterProperties) {
         Debug.Log(characterProperties.gameObject.name + " dodged!");
     }
 }
