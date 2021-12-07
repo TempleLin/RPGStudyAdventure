@@ -7,7 +7,7 @@ using UnityEngine.UI;
 [System.Serializable]
 public class InventorySlot {
     public GameObject _gameObject;
-    public Image spriteHolder;
+    public Text textHolder;
 }
 public class InventorySystem : MonoBehaviour {
     [SerializeField]
@@ -28,15 +28,15 @@ public class InventorySystem : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(KeyCode.A)) {
             var instantiated = Instantiate(slotPrefab, inventoryObject.transform);
-            var spriteHolder = instantiated.transform.GetChild(1).GetComponent<Image>();
+            var textHolder = instantiated.transform.GetChild(1).GetComponent<Text>();
             InventorySlotItem inventorySlotItem = instantiated.transform.GetChild(1).GetComponent<InventorySlotItem>();
             inventorySlotItem.getCalledStart();
             EventTriggerSettings.setEventTriggerDragDrop(inventorySlotItem);
             EventTriggerSettings.setEventTriggerHoveringScale(inventorySlotItem);
-            spriteHolder.sprite = itemsImages[0];
+            textHolder.text = "§ÚÂûÂû¦nÄo";
             slots.Add(new InventorySlot {
                 _gameObject = instantiated,
-                spriteHolder = spriteHolder
+                textHolder = textHolder
             });
         }
     }
