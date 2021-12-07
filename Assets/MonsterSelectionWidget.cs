@@ -15,7 +15,6 @@ public class MonsterSelectionWidget : MonoBehaviour {
     private static GameObject lastOnHoverWidget = null;
 
     private static float onScaleRange = .15f;
-    // Start is called before the first frame update
     void Start() {
         _boxCollider2D = GetComponent<BoxCollider2D>();
     }

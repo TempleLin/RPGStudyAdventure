@@ -12,7 +12,6 @@ public class AttackSelectionUtility : PageUtility {
     private BattleUtility _battleUtility;
 
     private bool instantiatedHoveringEventTrigger = false;
-    // Start is called before the first frame update
     void Start() {
         _battleUtility = GetComponent<BattleUtility>();
         base.utilityStart();
@@ -22,7 +21,6 @@ public class AttackSelectionUtility : PageUtility {
         });
     }
 
-    // Update is called once per frame
     void Update() {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction, Mathf.Infinity);

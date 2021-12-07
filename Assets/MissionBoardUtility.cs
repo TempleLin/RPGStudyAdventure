@@ -16,14 +16,10 @@ public class MissionBoardUtility : PageUtility {
     private Button startInputMissionBtn;
 
     private Text startInputMissionBtnText;
-    // private bool startCounting = false;
-    // private float timeCounter = 0f;
-    // private bool startCount = false;
     private float countDownTimer = 0f;
 
     private string[] startInputMissionBtnTextToChange = new[] {"加入新任務", "重置新任務"};
 
-    // Start is called before the first frame update
     void Start() {
         base.utilityStart();
         
@@ -39,10 +35,6 @@ public class MissionBoardUtility : PageUtility {
     }
 
     private void Update() {
-        // if (startCount)
-        // {
-            // Debug.Log("Test");
-        // }
         if (countDownTimer != 0) {
             countDownTimer -= (Time.deltaTime / 3600f / 24f > 0) ? Time.deltaTime / 3600f / 24f : countDownTimer;
             _missionSettingController.CountDownValueShow = countDownTimer * 24f;

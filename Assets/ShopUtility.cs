@@ -5,7 +5,6 @@ using UnityEngine;
 public class ShopUtility : PageUtility {
     [SerializeField]
     private GameObject shopLadyObject;
-    // Start is called before the first frame update
     void Start() {
         base.utilityStart();
 

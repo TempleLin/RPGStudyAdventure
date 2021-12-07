@@ -18,7 +18,6 @@ public class BattleUtility : PageUtility {
         _attackSelectionUtility = GetComponent<AttackSelectionUtility>();
     }
 
-    // Update is called once per frame
     void Update() {
         if (startFight) {
             if (fightWaitCounter + Time.deltaTime < (float)fightSpeed) {

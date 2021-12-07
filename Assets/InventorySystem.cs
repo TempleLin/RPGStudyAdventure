@@ -17,12 +17,10 @@ public class InventorySystem : MonoBehaviour {
     private GameObject inventoryObject;
 
     private List<InventorySlot> slots;
-    // Start is called before the first frame update
     void Start() {
         slots = new List<InventorySlot>();
     }
 
-    // Update is called once per frame
     void Update() {
         if (Input.GetKeyDown(KeyCode.A)) {
             var instantiated = Instantiate(slotPrefab, inventoryObject.transform);
