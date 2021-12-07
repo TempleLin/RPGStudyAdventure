@@ -30,7 +30,6 @@ public class InventorySlotItem : MonoBehaviour, EventTriggerSettings.TriggerOnDr
         transform.localScale = new Vector3(originalScale.x - .3f, originalScale.y - .3f, originalScale.z);
     }
 
-
     public void onDrag(BaseEventData baseEventData) {
         _rectTransform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, originalPosition.z);
     }

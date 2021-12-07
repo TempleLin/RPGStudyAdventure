@@ -16,8 +16,6 @@ public class InventorySystem : MonoBehaviour {
     [SerializeField]
     private GameObject inventoryObject;
 
-    [SerializeField] private List<Sprite> itemsImages;
-
     private List<InventorySlot> slots;
     // Start is called before the first frame update
     void Start() {
@@ -40,4 +38,8 @@ public class InventorySystem : MonoBehaviour {
             });
         }
     }
+
+    //public void receiveItem<gameObject>(Typ) {
+
+    //}
 }
