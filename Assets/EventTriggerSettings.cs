@@ -17,6 +17,12 @@ public static class EventTriggerSettings {
         public void onDrag(BaseEventData baseEventData);
         public void onDrop(BaseEventData baseEventData);
     }
+
+    public interface TriggerOnClick {
+        public EventTrigger @EventTrigger { get; set; }
+        public void onClick(BaseEventData baseEventData);
+    }
+
     public static void setEventTriggerHoveringScale(TriggerOnHover triggerOnHover) {
         EventTrigger.Entry onHoverEntry = new EventTrigger.Entry {eventID = EventTriggerType.PointerEnter};
         onHoverEntry.callback.AddListener(triggerOnHover.onHoverEntry);
@@ -35,5 +41,11 @@ public static class EventTriggerSettings {
         EventTrigger.Entry onDrop = new EventTrigger.Entry {eventID = EventTriggerType.EndDrag};
         onDrop.callback.AddListener(triggerOnDragDrop.onDrop);
         triggerOnDragDrop.EventTrigger.triggers.Add(onDrop);
+    }
+
+    public static void setEventTriggerOnClick(TriggerOnClick triggerOnClick) {
+        EventTrigger.Entry onClick = new EventTrigger.Entry { eventID = EventTriggerType.PointerClick };
+        onClick.callback.AddListener(triggerOnClick.onClick);
+        triggerOnClick.EventTrigger.triggers.Add(onClick);
     }
 }

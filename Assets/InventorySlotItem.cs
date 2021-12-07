@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class InventorySlotItem : MonoBehaviour, EventTriggerSettings.TriggerOnDragDrop, EventTriggerSettings.TriggerOnHover {
+public class InventorySlotItem : MonoBehaviour, EventTriggerSettings.TriggerOnDragDrop, EventTriggerSettings.TriggerOnHover, 
+    EventTriggerSettings.TriggerOnClick {
     private EventTrigger _eventTrigger;
     private Vector3 originalPosition;
     private RectTransform _rectTransform;
@@ -36,5 +37,11 @@ public class InventorySlotItem : MonoBehaviour, EventTriggerSettings.TriggerOnDr
 
     public void onDrop(BaseEventData baseEventData) {
         _rectTransform.localPosition = new Vector3(originalPosition.x, originalPosition.y, originalPosition.z);
+    }
+
+    public void onClick(BaseEventData baseEventData) {
+        Debug.Log("OnClickSlotItem");
+        baseEventData.selectedObject = gameObject;
+        Debug.Log("Clicked object: " + baseEventData.selectedObject.name);
     }
 }
