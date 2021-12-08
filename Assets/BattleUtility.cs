@@ -27,24 +27,12 @@ public class BattleUtility : PageUtility {
                     case 0:
                         mainCharSpriteRenderer.color = Color.red;
                         enemySpriteRenderer.color = Color.white;
-
-                        float randomDodgeChance = Random.Range(1f, 1000f);
-                        if (randomDodgeChance <= mainCharProperties.Agility) {
-                            characterDodgeAttack(mainCharProperties);
-                        }
-                        else {
-                            mainCharProperties.Health -= ((enemyProperties.AttackDmg - mainCharProperties.Defense > 0)?
-                                enemyProperties.AttackDmg - mainCharProperties.Defense : 1);
-                            Debug.Log("MainCharHealth: " + mainCharProperties.Health);
-                            if (mainCharProperties.Health <= 0) {
-                                mainCharProperties.resetProperties();
-                                getCalledStop();
-                            }
-                        }
+                        launchAttack(enemyProperties, mainCharProperties);
                         break;
                     case 1:
                         mainCharSpriteRenderer.color = Color.white;
                         enemySpriteRenderer.color = Color.red;
+                        launchAttack(mainCharProperties, enemyProperties);
                         break;
                 }
 
@@ -88,6 +76,21 @@ public class BattleUtility : PageUtility {
         enemySpriteRenderer.color = Color.white;
 
         _attackSelectionUtility.getCalledStart();
+    }
+
+    private void launchAttack(CharacterProperties attacker, CharacterProperties defender) {
+        float randomDodgeChance = Random.Range(1f, 1000f);
+        if (randomDodgeChance <= defender.Agility) {
+            characterDodgeAttack(defender);
+        } else {
+            defender.Health -= ((attacker.AttackDmg - defender.Defense > 0) ?
+                attacker.AttackDmg - defender.Defense : 1);
+            Debug.Log("DefenderHealth: " + defender.Health);
+            if (defender.Health <= 0) {
+                defender.resetProperties();
+                getCalledStop();
+            }
+        }
     }
 
     private void characterDodgeAttack(CharacterProperties characterProperties) {
