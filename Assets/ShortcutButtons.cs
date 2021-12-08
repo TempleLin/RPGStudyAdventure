@@ -12,6 +12,8 @@ public class ShortcutButtons : MonoBehaviour, EventTriggerSettings.TriggerOnHove
     private static PageUtility currentPage;
     private RectTransform _rectTransform;
     private EventTrigger _eventTrigger;
+    private static AudioSource _audioSource = null;
+    private static bool startOfGame = false;
     public EventTrigger EventTrigger {
         get => _eventTrigger;
         set => _eventTrigger = value;
@@ -24,6 +26,9 @@ public class ShortcutButtons : MonoBehaviour, EventTriggerSettings.TriggerOnHove
             pageUtilities = GameObject.Find("EachPageUtilities").GetComponents<PageUtility>();
             currentPage = pageUtilities[0];
             backgroundSprite.sprite = currentPage.Background;
+        }
+        if (_audioSource == null) {
+            _audioSource = transform.GetComponentInParent<AudioSource>();
         }
 
         _rectTransform = GetComponent<RectTransform>();
@@ -44,19 +49,24 @@ public class ShortcutButtons : MonoBehaviour, EventTriggerSettings.TriggerOnHove
 
     public void switchToMainhall() {
         switch_start_stop_Page(0);
+        _audioSource.Play();
     }
     public void switchToMissionBoard() {
         switch_start_stop_Page(1);
+        _audioSource.Play();
     }
     public void switchToAttackSelectionPage() {
         switch_start_stop_Page(2);
+        _audioSource.Play();
     }
     public void switchToShop() {
         switch_start_stop_Page(3);
+        _audioSource.Play();
     }
 
     public void switchToCharStatus() {
         switch_start_stop_Page(4);
+        _audioSource.Play();
     }
 
 
