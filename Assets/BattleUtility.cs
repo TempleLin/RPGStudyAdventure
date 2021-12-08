@@ -55,6 +55,9 @@ public class BattleUtility : PageUtility {
     }
 
     public override void getCalledStart() {
+        MusicsList.singleton.AudioSource.clip = MusicsList.singleton.Musics[1];
+        MusicsList.singleton.AudioSource.Play();
+
         _attackSelectionUtility.getCalledStop();
         _utilitiesSharedData.BackgroundSpriteRenderer.sprite = background;
         _utilitiesSharedData.EnemyMonsterObject.SetActive(true);
@@ -72,11 +75,18 @@ public class BattleUtility : PageUtility {
     }
 
     public override void getCalledStop() {
+        MusicsList.singleton.AudioSource.clip = MusicsList.singleton.Musics[0];
+        MusicsList.singleton.AudioSource.Play();
+
         _utilitiesSharedData.BackgroundSpriteRenderer.sprite = _attackSelectionUtility.Background;
         _utilitiesSharedData.EnemyMonsterObject.SetActive(false);
         _utilitiesSharedData.MainCharObject.SetActive(false);
         _utilitiesSharedData.ShortcutObject.SetActive(true);
         startFight = false;
+
+        mainCharSpriteRenderer.color = Color.white;
+        enemySpriteRenderer.color = Color.white;
+
         _attackSelectionUtility.getCalledStart();
     }
 

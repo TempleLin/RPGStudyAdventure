@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class MusicsList : MonoBehaviour
 {
+    public static MusicsList singleton = null;
     [SerializeField]
     private List<AudioClip> musics;
     public List<AudioClip> Musics => musics;
     private AudioSource _AudioSource;
+    public AudioSource AudioSource => _AudioSource;
+
+    private void Awake() {
+        if (singleton == null) {
+            singleton = this;
+        }
+    }
     void Start()
     {
         _AudioSource = GetComponent<AudioSource>();
