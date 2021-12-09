@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class InventorySlotItem : MonoBehaviour, EventTriggerSettings.TriggerOnDragDrop, EventTriggerSettings.TriggerOnHover, 
     EventTriggerSettings.TriggerOnClick {
+    public Image mainCharEquipmentImg0;
     private ItemInfo itemInfo;
     private EventTrigger _eventTrigger;
     private Vector3 originalPosition;
@@ -52,5 +54,7 @@ public class InventorySlotItem : MonoBehaviour, EventTriggerSettings.TriggerOnDr
         baseEventData.selectedObject = gameObject;
         Debug.Log("Clicked object: " + baseEventData.selectedObject.name);
         itemInfo.spriteHolderObject.GetComponent<SpriteRenderer>().sprite = itemInfo.sprite;
+        mainCharEquipmentImg0.color = Color.white;
+        mainCharEquipmentImg0.sprite = itemInfo.sprite;
     }
 }
