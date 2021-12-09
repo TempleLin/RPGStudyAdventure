@@ -14,6 +14,9 @@ public class InventorySystem : MonoBehaviour {
     public static InventorySystem singleton = null;
 
     [SerializeField]
+    private GameObject equpimentHolder;
+
+    [SerializeField]
     private TextAsset containedEquipmentsTxt;
 
     [SerializeField]
@@ -87,6 +90,7 @@ public class InventorySystem : MonoBehaviour {
                     itemInfo.itemType = ItemType.ACCESSORIES;
                     break;
             }
+            itemInfo.spriteHolderObject = equpimentHolder;
         }
     }
 

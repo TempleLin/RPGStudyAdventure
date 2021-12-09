@@ -14,4 +14,5 @@ public class ItemInfo : MonoBehaviour
     public string description;
     public Sprite sprite;
     public ItemType itemType;
+    public GameObject spriteHolderObject;
 }

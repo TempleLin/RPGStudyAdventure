@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class InventorySlotItem : MonoBehaviour, EventTriggerSettings.TriggerOnDragDrop, EventTriggerSettings.TriggerOnHover, 
     EventTriggerSettings.TriggerOnClick {
+    private ItemInfo itemInfo;
     private EventTrigger _eventTrigger;
     private Vector3 originalPosition;
     private RectTransform _rectTransform;
@@ -19,6 +20,7 @@ public class InventorySlotItem : MonoBehaviour, EventTriggerSettings.TriggerOnDr
         var tempPosition = transform.localPosition;
         _rectTransform = gameObject.GetComponent<RectTransform>();
         originalPosition = _rectTransform.localPosition;
+        itemInfo = transform.parent.gameObject.GetComponent<ItemInfo>();
     }
 
     public void onHoverEntry(BaseEventData baseEventData) {
@@ -49,5 +51,7 @@ public class InventorySlotItem : MonoBehaviour, EventTriggerSettings.TriggerOnDr
         Debug.Log("OnClickSlotItem");
         baseEventData.selectedObject = gameObject;
         Debug.Log("Clicked object: " + baseEventData.selectedObject.name);
+        //instantiated.GetComponent<SpriteRenderer>().sprite = itemInfo.sprite;
+        itemInfo.spriteHolderObject.GetComponent<SpriteRenderer>().sprite = itemInfo.sprite;
     }
 }
