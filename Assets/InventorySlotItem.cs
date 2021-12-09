@@ -51,7 +51,6 @@ public class InventorySlotItem : MonoBehaviour, EventTriggerSettings.TriggerOnDr
         Debug.Log("OnClickSlotItem");
         baseEventData.selectedObject = gameObject;
         Debug.Log("Clicked object: " + baseEventData.selectedObject.name);
-        //instantiated.GetComponent<SpriteRenderer>().sprite = itemInfo.sprite;
         itemInfo.spriteHolderObject.GetComponent<SpriteRenderer>().sprite = itemInfo.sprite;
     }
 }
