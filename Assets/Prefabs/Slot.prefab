@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 1710030761410798472}
   - component: {fileID: 1710030761410798479}
   - component: {fileID: 8774375950041068957}
+  - component: {fileID: 5248149398548854955}
   m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
@@ -234,3 +235,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1710030761410798473}
   m_CullTransparentMesh: 1
+--- !u!114 &5248149398548854955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710030761410798473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac66ad12299afd249a7e8b6f04a299ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: 
+  description: 
+  icon: {fileID: 0}
+  itemType: 0

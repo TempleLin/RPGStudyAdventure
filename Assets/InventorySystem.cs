@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -33,7 +34,9 @@ public class InventorySystem : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(KeyCode.A)) {
             var instantiated = Instantiate(slotPrefab, inventoryObject.transform);
-            var textHolder = instantiated.transform.GetChild(1).GetComponent<Text>();
+            var itemObject = instantiated.transform.GetChild(1);
+            var textHolder = itemObject.GetComponent<Text>();
+            var itemInfo = instantiated.GetComponent<ItemInfo>();
             InventorySlotItem inventorySlotItem = instantiated.transform.GetChild(1).GetComponent<InventorySlotItem>();
             inventorySlotItem.getCalledStart();
             EventTriggerSettings.setEventTriggerDragDrop(inventorySlotItem);
@@ -54,15 +57,36 @@ public class InventorySystem : MonoBehaviour {
         }
 
         List<string> lines = new List<string>(containedEquipmentsTxt.text.Split('\n'));
-        for (int i = 0; i < lines.Count; i += 2) {
+        for (int i = 0; i < lines.Count; i += 3) {
             var instantiated = Instantiate(slotPrefab, inventoryObject.transform);
-            var textHolder = instantiated.transform.GetChild(1).GetComponent<Text>();
+            var itemObject = instantiated.transform.GetChild(1);
+            var textHolder = itemObject.GetComponent<Text>();
+            var itemInfo = instantiated.GetComponent<ItemInfo>();
             InventorySlotItem inventorySlotItem = textHolder.gameObject.GetComponent<InventorySlotItem>();
             inventorySlotItem.getCalledStart();
             EventTriggerSettings.setEventTriggerDragDrop(inventorySlotItem);
             EventTriggerSettings.setEventTriggerHoveringScale(inventorySlotItem);
             EventTriggerSettings.setEventTriggerOnClick(inventorySlotItem);
             textHolder.text = lines[i];
+
+            string linei_1Replaced = Regex.Replace(lines[i+1], @"\t|\n|\r", "");
+            itemInfo.sprite = Resources.Load<Sprite>("Equipments/" + linei_1Replaced);
+            if (itemInfo.sprite == null) {
+                Debug.Log("Failed to load equipment sprite: Equipments/" + lines[i + 1]);
+            }
+
+            itemInfo.name = lines[i];
+            switch(lines[i + 2]) {
+                case "Weapon":
+                    itemInfo.itemType = ItemType.WEAPON;
+                    break;
+                case "Outfit":
+                    itemInfo.itemType = ItemType.OUTFIT;
+                    break;
+                case "Accessories":
+                    itemInfo.itemType = ItemType.ACCESSORIES;
+                    break;
+            }
         }
     }
 

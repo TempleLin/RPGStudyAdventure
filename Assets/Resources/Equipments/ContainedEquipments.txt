@@ -1,4 +1,6 @@
 機體立動裝置
-MenuvarGear.png
+MenuvarGear
+Weapon
 火爆流氣斬
-StarBurst.png
+StarBurst
+Weapon
