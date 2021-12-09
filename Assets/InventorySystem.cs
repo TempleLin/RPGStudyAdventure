@@ -10,6 +10,11 @@ public class InventorySlot {
     public Text textHolder;
 }
 public class InventorySystem : MonoBehaviour {
+    public static InventorySystem singleton = null;
+
+    [SerializeField]
+    private TextAsset containedEquipmentsTxt;
+
     [SerializeField]
     private GameObject slotPrefab;
 
@@ -19,6 +24,10 @@ public class InventorySystem : MonoBehaviour {
     private List<InventorySlot> slots;
     void Start() {
         slots = new List<InventorySlot>();
+        if (singleton == null) {
+            singleton = this;
+        }
+        updateContainments(); 
     }
 
     void Update() {
@@ -35,6 +44,25 @@ public class InventorySystem : MonoBehaviour {
                 _gameObject = instantiated,
                 textHolder = textHolder
             });
+        }
+    }
+
+    public void updateContainments() {
+        int childs = inventoryObject.transform.childCount;
+        for (int i = childs - 1; i > 0; i--) {
+            Destroy(inventoryObject.transform.GetChild(i).gameObject);
+        }
+
+        List<string> lines = new List<string>(containedEquipmentsTxt.text.Split('\n'));
+        for (int i = 0; i < lines.Count; i += 2) {
+            var instantiated = Instantiate(slotPrefab, inventoryObject.transform);
+            var textHolder = instantiated.transform.GetChild(1).GetComponent<Text>();
+            InventorySlotItem inventorySlotItem = textHolder.gameObject.GetComponent<InventorySlotItem>();
+            inventorySlotItem.getCalledStart();
+            EventTriggerSettings.setEventTriggerDragDrop(inventorySlotItem);
+            EventTriggerSettings.setEventTriggerHoveringScale(inventorySlotItem);
+            EventTriggerSettings.setEventTriggerOnClick(inventorySlotItem);
+            textHolder.text = lines[i];
         }
     }
 

@@ -32,11 +32,17 @@ public class InventorySlotItem : MonoBehaviour, EventTriggerSettings.TriggerOnDr
     }
 
     public void onDrag(BaseEventData baseEventData) {
-        _rectTransform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, originalPosition.z);
+        /*
+         * Temporarily disable.
+         */
+        //_rectTransform.position = new Vector3(Input.mousePosition.x, Input.mousePosition.y, originalPosition.z);
     }
 
     public void onDrop(BaseEventData baseEventData) {
-        _rectTransform.localPosition = new Vector3(originalPosition.x, originalPosition.y, originalPosition.z);
+        /*
+         * Temporarily disable.
+         */
+        //_rectTransform.localPosition = new Vector3(originalPosition.x, originalPosition.y, originalPosition.z);
     }
 
     public void onClick(BaseEventData baseEventData) {
