@@ -1,18 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemInShopList : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Text text;
+    private ItemInfo itemInfo;
+    public ItemInfo @ItemInfo { set => itemInfo = value; }
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        text = GetComponent<Text>();
+        text.text = itemInfo.name;
     }
 }
