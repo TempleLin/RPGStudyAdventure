@@ -24,9 +24,4 @@ public class StatusShowBoard : MonoBehaviour
             text.text += s + "\n";
         }
     }
-
-    void Update()
-    {
-        
-    }
 }

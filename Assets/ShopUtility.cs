@@ -10,6 +10,7 @@ public class ShopUtility : PageUtility {
     [SerializeField] private GameObject mainCharPreviewPanel;
     [SerializeField] private MoneySaver mainCharMoneySaver;
     [SerializeField] private Scrollbar itemsListScrollbar;
+    [SerializeField] private BuyItemButton buyItemButton;
     private Vector3 mainCharImgOriginPos;
     void Start() {
         base.utilityStart();
@@ -17,6 +18,7 @@ public class ShopUtility : PageUtility {
         shopLadyObject.SetActive(false);
         shopPageUIObject.SetActive(false);
         mainCharImgOriginPos = mainCharImg.transform.position;
+        EventTriggerSettings.setEventTriggerOnClick(buyItemButton);
     }
 
     public override void getCalledStart() {
