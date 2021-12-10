@@ -6048,6 +6048,7 @@ GameObject:
   - component: {fileID: 1749303520}
   - component: {fileID: 1749303522}
   - component: {fileID: 1749303521}
+  - component: {fileID: 1749303523}
   m_Layer: 5
   m_Name: MoneyCount
   m_TagString: Untagged
@@ -6114,6 +6115,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1749303519}
   m_CullTransparentMesh: 1
+--- !u!114 &1749303523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749303519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7acaa8805c71340469b23961055f3966, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moneyCountText: {fileID: 1540302314}
+  moneyCountTxt: {fileID: 4900000, guid: 0999c8f67a6e9344fb28f78371a30a87, type: 3}
 --- !u!1 &1753169876
 GameObject:
   m_ObjectHideFlags: 0
