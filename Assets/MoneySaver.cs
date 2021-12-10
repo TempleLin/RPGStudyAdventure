@@ -17,7 +17,7 @@ public class MoneySaver : MonoBehaviour
     }
 
     public void updateMoneyCount() {
-        Debug.Log("MoneyCountTxtFile: " + moneyCountTxtFile.text);
+        moneyCountTxtFile.text.Trim();
         moneyCountText.text = moneyCountTxtFile.text;
     }
 }

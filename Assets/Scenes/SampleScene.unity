@@ -251,7 +251,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.000061035156, y: -0.000015258789}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &41403146 stripped
@@ -2786,6 +2786,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EquipmentSelection
       objectReference: {fileID: 0}
+    - target: {fileID: 8747245072218315291, guid: ec42f4e910119904abfd265f375ec0f5, type: 3}
+      propertyPath: m_Text
+      value: "\u706B\u7206\u6D41\u6C23\u65AC"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec42f4e910119904abfd265f375ec0f5, type: 3}
 --- !u!1 &719104410
@@ -3454,6 +3458,8 @@ MonoBehaviour:
   shopPageUIObject: {fileID: 239281235}
   mainCharImg: {fileID: 880476346}
   mainCharPreviewPanel: {fileID: 1728383651}
+  mainCharMoneySaver: {fileID: 1749303523}
+  itemsListScrollbar: {fileID: 1511649629}
 --- !u!114 &842697968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5880,6 +5886,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EquipmentSelection (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8747245072218315291, guid: ec42f4e910119904abfd265f375ec0f5, type: 3}
+      propertyPath: m_Text
+      value: "\u6A5F\u9AD4\u7ACB\u52D5\u88DD\u7F6E"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec42f4e910119904abfd265f375ec0f5, type: 3}
 --- !u!1 &1728383651
@@ -6128,7 +6138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyCountText: {fileID: 1540302314}
-  moneyCountTxt: {fileID: 4900000, guid: 0999c8f67a6e9344fb28f78371a30a87, type: 3}
+  moneyCountTxtFile: {fileID: 0}
 --- !u!1 &1753169876
 GameObject:
   m_ObjectHideFlags: 0
