@@ -19,6 +19,7 @@ public class ShopUtility : PageUtility {
         shopPageUIObject.SetActive(false);
         mainCharImgOriginPos = mainCharImg.transform.position;
         EventTriggerSettings.setEventTriggerOnClick(buyItemButton);
+        EventTriggerSettings.setEventTriggerHoveringScale(buyItemButton);
     }
 
     public override void getCalledStart() {
