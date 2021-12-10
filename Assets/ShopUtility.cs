@@ -7,7 +7,7 @@ public class ShopUtility : PageUtility {
     private GameObject shopLadyObject;
     void Start() {
         base.utilityStart();
-
+        shopLadyObject.SetActive(false);
     }
 
     public override void getCalledStart() {
