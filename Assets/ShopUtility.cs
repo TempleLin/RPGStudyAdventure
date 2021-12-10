@@ -11,6 +11,12 @@ public class ShopUtility : PageUtility {
     [SerializeField] private MoneySaver mainCharMoneySaver;
     [SerializeField] private Scrollbar itemsListScrollbar;
     [SerializeField] private BuyItemButton buyItemButton;
+    [SerializeField] private ListItemAdd shopWeaponsList;
+    [SerializeField] private ListItemAdd shopOutfitList;
+    [SerializeField] private ListItemAdd shopAccessoriesList;
+    [SerializeField] private TextAsset shopWeaponsListtxt;
+    [SerializeField] private TextAsset shopOutfitListtxt;
+    [SerializeField] private TextAsset shopAccessoriesListtxt;
     private Vector3 mainCharImgOriginPos;
     void Start() {
         base.utilityStart();
@@ -20,6 +26,7 @@ public class ShopUtility : PageUtility {
         mainCharImgOriginPos = mainCharImg.transform.position;
         EventTriggerSettings.setEventTriggerOnClick(buyItemButton);
         EventTriggerSettings.setEventTriggerHoveringScale(buyItemButton);
+        updateItemsInShopList();
     }
 
     public override void getCalledStart() {
@@ -40,6 +47,17 @@ public class ShopUtility : PageUtility {
         shopPageUIObject.SetActive(false);
         mainCharImg.transform.position = mainCharImgOriginPos;
         mainCharImg.SetActive(false);
+    }
+
+    private void updateItemsInShopList() {
+        List<string> lines = new List<string>(shopWeaponsListtxt.text.Split('\n'));
+        for (int i = 0; i < lines.Count; i += 3) {
+            shopWeaponsList.addItem(new ItemInfo {
+                name = lines[i].Trim(),
+                sprite = Resources.Load<Sprite>(lines[1].Trim()),
+                price = int.Parse(lines[2].Trim())
+            });
+        }
     }
 
     private void resetScrollPos() {

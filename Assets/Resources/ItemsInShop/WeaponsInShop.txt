@@ -1,0 +1,6 @@
+機體立動裝置
+ItemsInShop/MenuvarGear
+80
+火爆流氣斬
+ItemsInShop/StarBurst
+150

@@ -77,7 +77,7 @@ public class InventorySystem : MonoBehaviour {
             textHolder.text = lines[i];
 
             string linei_1Replaced = Regex.Replace(lines[i+1], @"\t|\n|\r", "");
-            itemInfo.sprite = Resources.Load<Sprite>("Equipments/" + linei_1Replaced);
+            itemInfo.sprite = Resources.Load<Sprite>(linei_1Replaced);
             if (itemInfo.sprite == null) {
                 Debug.Log("Failed to load equipment sprite: Equipments/" + lines[i + 1]);
             }
