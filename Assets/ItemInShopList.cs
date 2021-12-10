@@ -8,6 +8,7 @@ public class ItemInShopList : MonoBehaviour
     private Text text;
     private ItemInfo itemInfo;
     public ItemInfo @ItemInfo { set => itemInfo = value; }
+    public Sprite sprite => itemInfo.sprite;
     public void getCalledStart() {
         text = GetComponent<Text>();
         text.text = itemInfo.name;
