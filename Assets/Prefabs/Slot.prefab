@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: eb77f3db94e6fe447abd45e5513dd414, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 24d3652e708322c46a9889921beff0cb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc74463b87f0d0469f807eb24ffb427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  equipmentPrefab: {fileID: 4537880966196998695, guid: b6dc882556e0ceb4db760168031e6c15, type: 3}
+  mainCharEquipmentImg0: {fileID: 0}
 --- !u!114 &8713340318476894990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,4 +252,4 @@ MonoBehaviour:
   description: 
   sprite: {fileID: 0}
   itemType: 0
-  owner: {fileID: 0}
+  spriteHolderObject: {fileID: 0}
