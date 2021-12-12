@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ListItemAdd : MonoBehaviour
+public class ShopListSelections : MonoBehaviour
 {
     [SerializeField] private GameObject listItemPrefab;
     [SerializeField] private GameObject confirmBuyPopupRef;

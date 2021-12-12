@@ -11,9 +11,9 @@ public class ShopUtility : PageUtility {
     [SerializeField] private MoneySaver mainCharMoneySaver;
     [SerializeField] private Scrollbar itemsListScrollbar;
     [SerializeField] private BuyItemButton buyItemButton;
-    [SerializeField] private ListItemAdd shopWeaponsList;
-    [SerializeField] private ListItemAdd shopOutfitList;
-    [SerializeField] private ListItemAdd shopAccessoriesList;
+    [SerializeField] private ShopListSelections shopWeaponsSelections;
+    [SerializeField] private ShopListSelections shopOutfitSelections;
+    [SerializeField] private ShopListSelections shopAccessoriesSelections;
     [SerializeField] private TextAsset shopWeaponsListtxt;
     [SerializeField] private TextAsset shopOutfitListtxt;
     [SerializeField] private TextAsset shopAccessoriesListtxt;
@@ -52,7 +52,7 @@ public class ShopUtility : PageUtility {
     private void updateItemsInShopList() {
         List<string> lines = new List<string>(shopWeaponsListtxt.text.Split('\n'));
         for (int i = 0; i < lines.Count; i += 3) {
-            shopWeaponsList.addItem(new ItemInfo {
+            shopWeaponsSelections.addItem(new ItemInfo {
                 name = lines[i].Trim(),
                 sprite = Resources.Load<Sprite>(lines[1].Trim()),
                 price = int.Parse(lines[2].Trim())
