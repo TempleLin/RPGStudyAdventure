@@ -2417,6 +2417,7 @@ MonoBehaviour:
   confirmBuyPanelRef: {fileID: 1637210537}
   notEnoughMoneyPanelRef: {fileID: 127003801}
   confirmBuyYes: {fileID: 177678915}
+  confirmBuyNo: {fileID: 210459451}
   containedWeaponsRef: {fileID: 4900000, guid: bf10d95c347d45640a097ab5048fc324, type: 3}
   containedOutfitsRef: {fileID: 0}
   containedAccessoriesRef: {fileID: 0}

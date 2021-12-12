@@ -13,7 +13,9 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
     [SerializeField] private MoneySaver moneySaverRef;
     [SerializeField] private GameObject confirmBuyPanelRef;
     [SerializeField] private GameObject notEnoughMoneyPanelRef;
-    [Space(10)] [SerializeField] private Button confirmBuyYes;
+    [Space(10)] 
+    [SerializeField] private Button confirmBuyYes;
+    [SerializeField] private Button confirmBuyNo;
     [SerializeField] private TextAsset containedWeaponsRef;
     [SerializeField] private TextAsset containedOutfitsRef;
     [SerializeField] private TextAsset containedAccessoriesRef;
@@ -41,6 +43,9 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
                 case ItemType.ACCESSORIES:
                     break;
             }
+            confirmBuyPanelRef.gameObject.SetActive(false);
+        });
+        confirmBuyNo.onClick.AddListener(delegate {
             confirmBuyPanelRef.gameObject.SetActive(false);
         });
         
