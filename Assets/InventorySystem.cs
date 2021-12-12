@@ -40,25 +40,6 @@ public class InventorySystem : MonoBehaviour {
         startupContainments(); 
     }
 
-    void Update() {
-        // if (Input.GetKeyDown(KeyCode.A)) {
-        //     var instantiated = Instantiate(slotPrefab, inventoryObject.transform);
-        //     var itemObject = instantiated.transform.GetChild(1);
-        //     var textHolder = itemObject.GetComponent<Text>();
-        //     var itemInfo = instantiated.GetComponent<ItemInfo>();
-        //     InventorySlotItem inventorySlotItem = instantiated.transform.GetChild(1).GetComponent<InventorySlotItem>();
-        //     inventorySlotItem.getCalledStart();
-        //     EventTriggerSettings.setEventTriggerDragDrop(inventorySlotItem);
-        //     EventTriggerSettings.setEventTriggerHoveringScale(inventorySlotItem);
-        //     EventTriggerSettings.setEventTriggerOnClick(inventorySlotItem);
-        //     textHolder.text = "我雞雞好癢";
-        //     slots.Add(new InventorySlot {
-        //         _gameObject = instantiated,
-        //         textHolder = textHolder
-        //     });
-        // }
-    }
-    
     //Get called by outside to add item to inventory. 
     public void addItem(Sprite sprite, string path, string weaponChineseName, ItemType itemType) {
         var instantiated = Instantiate(slotPrefab, inventoryObject.transform);
