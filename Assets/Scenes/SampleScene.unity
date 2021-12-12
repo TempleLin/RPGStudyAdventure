@@ -3987,7 +3987,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1754596690}
   m_HandleRect: {fileID: 1754596689}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -4699,7 +4699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moneyCountText: {fileID: 1540302314}
-  moneyCountTxtFile: {fileID: 0}
+  moneyCountTxtFile: {fileID: 4900000, guid: 0999c8f67a6e9344fb28f78371a30a87, type: 3}
 --- !u!1 &1753169876
 GameObject:
   m_ObjectHideFlags: 0
