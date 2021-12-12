@@ -51,11 +51,17 @@ public class ShopUtility : PageUtility {
 
     private void updateItemsInShopList() {
         List<string> lines = new List<string>(shopWeaponsListtxt.text.Split('\n'));
+        Debug.Log("Test print lines:");
+        foreach (var line in lines)
+        {
+            Debug.Log(line);
+        }
+        Debug.Log("Test print End.");
         for (int i = 0; i < lines.Count; i += 3) {
             shopWeaponsSelections.addItem(new ItemInfo {
                 name = lines[i].Trim(),
-                sprite = Resources.Load<Sprite>(lines[1].Trim()),
-                price = int.Parse(lines[2].Trim())
+                sprite = Resources.Load<Sprite>(lines[i + 1].Trim()),
+                price = int.Parse(lines[i + 2].Trim())
             });
         }
     }

@@ -9,7 +9,7 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
 {
     [SerializeField] private MoneySaver moneySaverRef;
     [SerializeField] private GameObject confirmBuyPanelRef;
-    // [SerializeField] private GameObject notEnoughMoneyPanelRef;
+    [SerializeField] private GameObject notEnoughMoneyPanelRef;
     
     private EventTrigger eventTrigger;
     public EventTrigger EventTrigger { get => eventTrigger; set => eventTrigger = value; }
@@ -19,11 +19,19 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
         eventTrigger = GetComponent<EventTrigger>();
         originalScale = transform.localScale;
         confirmBuyPanelRef.SetActive(false);
+        notEnoughMoneyPanelRef.SetActive(false);
     }
 
     void EventTriggerSettings.TriggerOnClick.onClick(BaseEventData baseEventData) {
-        if (ItemInShopList.currentSelectedWeapon.ItemInfo.price <= moneySaverRef.moneyCount) {
-            confirmBuyPanelRef.SetActive(true);
+        Debug.Log("Current Selected Weapon: " + ItemInShopList.currentSelectedWeapon.ItemInfo.name);
+        Debug.Log("Price: " + ItemInShopList.currentSelectedWeapon.ItemInfo.price);
+        Debug.Log("Money saved: " + moneySaverRef.moneyCount);
+        if (ItemInShopList.currentSelectedWeapon != null) {
+            if (ItemInShopList.currentSelectedWeapon.ItemInfo.price <= moneySaverRef.moneyCount) {
+                confirmBuyPanelRef.SetActive(true);
+            } else if (ItemInShopList.currentSelectedWeapon.ItemInfo.price > moneySaverRef.moneyCount) {
+                notEnoughMoneyPanelRef.SetActive(true);
+            }
         }
     }
 
