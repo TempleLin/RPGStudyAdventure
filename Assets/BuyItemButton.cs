@@ -13,7 +13,7 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
     [SerializeField] private MoneySaver moneySaverRef;
     [SerializeField] private GameObject confirmBuyPanelRef;
     [SerializeField] private GameObject notEnoughMoneyPanelRef;
-    [Space(10)] [SerializeField] private Button confirmBuyButtom;
+    [Space(10)] [SerializeField] private Button confirmBuyYes;
     [SerializeField] private TextAsset containedWeaponsRef;
     [SerializeField] private TextAsset containedOutfitsRef;
     [SerializeField] private TextAsset containedAccessoriesRef;
@@ -27,7 +27,7 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
     
     private void Start()
     {
-        confirmBuyButtom.onClick.AddListener(delegate {
+        confirmBuyYes.onClick.AddListener(delegate {
             switch (itemTypeToWrite) {
                 case ItemType.OUTFIT:
                     break;
