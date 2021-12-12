@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5531207424896770740}
   - component: {fileID: 5623139415802245851}
   m_Layer: 5
-  m_Name: WeaponsSelections
+  m_Name: ShopListSelections
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

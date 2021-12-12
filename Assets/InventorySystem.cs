@@ -48,7 +48,7 @@ public class InventorySystem : MonoBehaviour {
             EventTriggerSettings.setEventTriggerDragDrop(inventorySlotItem);
             EventTriggerSettings.setEventTriggerHoveringScale(inventorySlotItem);
             EventTriggerSettings.setEventTriggerOnClick(inventorySlotItem);
-            textHolder.text = "§ÚÂûÂû¦nÄo";
+            textHolder.text = "æˆ‘é›žé›žå¥½ç™¢";
             slots.Add(new InventorySlot {
                 _gameObject = instantiated,
                 textHolder = textHolder
