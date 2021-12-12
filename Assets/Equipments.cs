@@ -9,7 +9,7 @@ public enum EquipmentType {
 }
 
 [System.Serializable]
-public class Equipment : MonoBehaviour {
+public class Equipment {
     public string name;
     public int attackUpgrade;
     public int healthUpgrade;

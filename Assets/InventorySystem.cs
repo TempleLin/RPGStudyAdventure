@@ -60,8 +60,7 @@ public class InventorySystem : MonoBehaviour {
     }
     
     //Get called by outside to add item to inventory. 
-    public void addItem(ItemInfo itemInfo, Sprite sprite, string path, string weaponChineseName, ItemType itemType) {
-        Debug.Log("ItemInfo: " + itemInfo);
+    public void addItem(Sprite sprite, string path, string weaponChineseName, ItemType itemType) {
         var instantiated = Instantiate(slotPrefab, inventoryObject.transform);
         var itemObject = instantiated.transform.GetChild(1);
         var textHolder = itemObject.GetComponent<Text>();
