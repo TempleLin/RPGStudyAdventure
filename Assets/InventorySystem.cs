@@ -64,6 +64,10 @@ public class InventorySystem : MonoBehaviour {
 
         List<string> lines = new List<string>(containedWeaponsTxt.text.Split('\n'));
         for (int i = 0; i < lines.Count; i += 3) {
+            if (i == lines.Count - 1 && lines[i].Trim() == "") {
+                break;
+            }            
+            
             var instantiated = Instantiate(slotPrefab, inventoryObject.transform);
             var itemObject = instantiated.transform.GetChild(1);
             var textHolder = itemObject.GetComponent<Text>();

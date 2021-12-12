@@ -31,21 +31,28 @@ public class EquipmentSelectionBlock : MonoBehaviour, EventTriggerSettings.Trigg
     }
 
     public void onClick(BaseEventData baseEventData) {
-        switch (itemInShopListRef.ItemInfo.itemType) {
-            case ItemType.OUTFIT:
-                break;
-            case ItemType.WEAPON:
-                if (itemInShopListRef.CurrentSelectedWeapon == itemInShopListRef)
-                {
-                    itemInShopListRef.CurrentSelectedWeapon = null;
-                    Debug.Log("Removed equipment from selection.");
-                    return;
-                }
-                itemInShopListRef.CurrentSelectedWeapon = itemInShopListRef;
-                Debug.Log("Saved equipment to currentSelectionWeapon.");
-                break;
-            case ItemType.ACCESSORIES:
-                break;
+        if (ItemInShopList.currentSelectedItem == itemInShopListRef) {
+            ItemInShopList.currentSelectedItem = null;
+            Debug.Log("Removed equipment from selection.");
+            return;
         }
+        ItemInShopList.currentSelectedItem = itemInShopListRef;
+        Debug.Log("Saved equipment to currentSelectionItem.");
+        // switch (itemInShopListRef.ItemInfo.itemType) {
+        //     case ItemType.OUTFIT:
+        //         break;
+        //     case ItemType.WEAPON:
+        //         if (itemInShopListRef.CurrentSelectedWeapon == itemInShopListRef)
+        //         {
+        //             itemInShopListRef.CurrentSelectedWeapon = null;
+        //             Debug.Log("Removed equipment from selection.");
+        //             return;
+        //         }
+        //         itemInShopListRef.CurrentSelectedWeapon = itemInShopListRef;
+        //         Debug.Log("Saved equipment to currentSelectionWeapon.");
+        //         break;
+        //     case ItemType.ACCESSORIES:
+        //         break;
+        // }
     }
 }
