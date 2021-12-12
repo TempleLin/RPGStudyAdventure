@@ -57,6 +57,7 @@ public class InventorySystem : MonoBehaviour {
     }
 
     public void updateContainments() {
+        Debug.Log("Update Containments");
         int childs = inventoryObject.transform.childCount;
         for (int i = childs - 1; i > 0; i--) {
             Destroy(inventoryObject.transform.GetChild(i).gameObject);
@@ -64,7 +65,7 @@ public class InventorySystem : MonoBehaviour {
 
         List<string> lines = new List<string>(containedWeaponsTxt.text.Split('\n'));
         for (int i = 0; i < lines.Count; i += 3) {
-            if (i == lines.Count - 1 && lines[i].Trim() == "") {
+            if (i == lines.Count - 1 && (lines[i] == "" || lines[i] == "\n")) {
                 break;
             }            
             

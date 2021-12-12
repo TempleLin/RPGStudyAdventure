@@ -43,6 +43,7 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
                 case ItemType.ACCESSORIES:
                     break;
             }
+            InventorySystem.singleton.updateContainments();
             confirmBuyPanelRef.gameObject.SetActive(false);
         });
         confirmBuyNo.onClick.AddListener(delegate {
@@ -56,6 +57,10 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
     }
 
     void EventTriggerSettings.TriggerOnClick.onClick(BaseEventData baseEventData) {
+        if (ItemInShopList.currentSelectedItem == null) {
+            Debug.Log("No item selected! Can't buy.");
+            return;
+        }
         if (ItemInShopList.currentSelectedItem.ItemInfo.price <= moneySaverRef.moneyCount) {
             confirmBuyPanelRef.SetActive(true);
         } else {
