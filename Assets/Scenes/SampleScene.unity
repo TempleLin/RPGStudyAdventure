@@ -1672,7 +1672,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -119.1, y: -38.354}
-  m_SizeDelta: {x: 311.6391, y: 58.4324}
+  m_SizeDelta: {x: 131.7853, y: 58.4324}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &493859922
 MonoBehaviour:
@@ -2295,6 +2295,10 @@ MonoBehaviour:
   moneySaverRef: {fileID: 1749303523}
   confirmBuyPanelRef: {fileID: 1637210537}
   notEnoughMoneyPanelRef: {fileID: 127003801}
+  confirmBuyButtom: {fileID: 493859922}
+  containedWeaponsRef: {fileID: 4900000, guid: bf10d95c347d45640a097ab5048fc324, type: 3}
+  containedOutfitsRef: {fileID: 0}
+  containedAccessoriesRef: {fileID: 0}
 --- !u!114 &651982208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3782,7 +3786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -4311,7 +4315,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCharEquipmentImg0: {fileID: 1389922313}
   equpimentHolder: {fileID: 382992999}
-  containedEquipmentsTxt: {fileID: 4900000, guid: bf10d95c347d45640a097ab5048fc324, type: 3}
+  containedWeaponsTxt: {fileID: 0}
   slotPrefab: {fileID: 1710030761410798473, guid: 19459112515af604fb99b3ac8e0c4e18, type: 3}
   inventoryObject: {fileID: 1530431728}
 --- !u!4 &1346660323
@@ -4425,7 +4429,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -5231,7 +5235,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 116.6, y: -38.354}
-  m_SizeDelta: {x: 311.6391, y: 58.4324}
+  m_SizeDelta: {x: 134.2159, y: 58.4324}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1630982959
 MonoBehaviour:

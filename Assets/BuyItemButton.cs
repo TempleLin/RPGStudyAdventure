@@ -38,7 +38,7 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
                     streamWriter.Write("Weapon");
                 }
             }
-            Debug.Log(this.gameObject.name);
+            confirmBuyPanelRef.gameObject.SetActive(false);
         });
         
         eventTrigger = GetComponent<EventTrigger>();
