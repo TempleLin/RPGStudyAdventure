@@ -1,6 +1,6 @@
 機體立動裝置
-Resources/MenuvarGear
+ItemsInShop/MenuvarGear
 Weapon
 機體立動裝置
-Resources/MenuvarGear
+ItemsInShop/MenuvarGear
 Weapon

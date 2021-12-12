@@ -34,16 +34,20 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
                 case ItemType.OUTFIT:
                     break;
                 case ItemType.WEAPON:
-                    using (streamWriter = File.AppendText("Assets/Resources/Equipments/ContainedWeapons.txt")) { 
-                        streamWriter.WriteLine(ItemInShopList.currentSelectedItem.ItemInfo.name);
-                        streamWriter.WriteLine("Resources/" + ItemInShopList.currentSelectedItem.ItemInfo.sprite.name);
-                        streamWriter.WriteLine("Weapon");
-                    }
+                    streamWriter = File.AppendText("Assets/Resources/Equipments/ContainedWeapons.txt");
+                    streamWriter.WriteLine(ItemInShopList.currentSelectedItem.ItemInfo.name);
+                    streamWriter.WriteLine("ItemsInShop/" + ItemInShopList.currentSelectedItem.ItemInfo.sprite.name);
+                    streamWriter.WriteLine("Weapon");
+                    streamWriter.Close();
+                    InventorySystem.singleton.addItem(ItemInShopList.currentSelectedItem.ItemInfo, ItemInShopList.currentSelectedItem.ItemInfo.sprite, "ItemsInShop/" + ItemInShopList.currentSelectedItem.ItemInfo.sprite.name, 
+                        ItemInShopList.currentSelectedItem.ItemInfo.name, ItemType.WEAPON);
                     break;
                 case ItemType.ACCESSORIES:
                     break;
             }
-            InventorySystem.singleton.updateContainments();
+            // InventorySystem.singleton.startupContainments();
+            // InventorySystem.singleton.addItem(ItemInShopList.currentSelectedItem.ItemInfo, ItemInShopList.currentSelectedItem.ItemInfo.sprite, "ItemsInShop/" + ItemInShopList.currentSelectedItem.ItemInfo.sprite.name, 
+            //     ItemInShopList.currentSelectedItem.ItemInfo.name, ItemType.WEAPON);
             confirmBuyPanelRef.gameObject.SetActive(false);
         });
         confirmBuyNo.onClick.AddListener(delegate {
