@@ -58,8 +58,10 @@ public class InventorySystem : MonoBehaviour {
         //     });
         // }
     }
-
+    
+    //Get called by outside to add item to inventory. 
     public void addItem(ItemInfo itemInfo, Sprite sprite, string path, string weaponChineseName, ItemType itemType) {
+        Debug.Log("ItemInfo: " + itemInfo);
         var instantiated = Instantiate(slotPrefab, inventoryObject.transform);
         var itemObject = instantiated.transform.GetChild(1);
         var textHolder = itemObject.GetComponent<Text>();
@@ -71,21 +73,18 @@ public class InventorySystem : MonoBehaviour {
         EventTriggerSettings.setEventTriggerHoveringScale(inventorySlotItem);
         EventTriggerSettings.setEventTriggerOnClick(inventorySlotItem);
         textHolder.text = weaponChineseName;
-        
-        _itemInfo.sprite = Resources.Load<Sprite>(path);
-        if (itemInfo.sprite == null) {
-            Debug.Log("Failed to load equipment sprite: Equipments/" + itemInfo.name);
-        }
 
-        _itemInfo = itemInfo;
-        itemInfo.spriteHolderObject = equpimentHolder;
+        _itemInfo.name = weaponChineseName;
+        _itemInfo.itemType = itemType;
+        _itemInfo.sprite = sprite;
+        _itemInfo.spriteHolderObject = equpimentHolder;
         
         weaponSlots.Add(new InventorySlot
         {
             _gameObject = instantiated,
             textHolder = textHolder,
             path = path,
-            itemInfo = itemInfo 
+            itemInfo = _itemInfo 
         });
     }
 
