@@ -2188,6 +2188,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85490b55cb2ae6147a857afa5d7bf83a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneySaverRef: {fileID: 1749303523}
+  buyConfirmPanelRef: {fileID: 1637210537}
 --- !u!114 &651982208
 MonoBehaviour:
   m_ObjectHideFlags: 0

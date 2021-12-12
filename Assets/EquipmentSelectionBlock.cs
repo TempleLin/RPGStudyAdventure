@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 public class EquipmentSelectionBlock : MonoBehaviour, EventTriggerSettings.TriggerOnHover,
     EventTriggerSettings.TriggerOnClick
 {
+    private ItemInShopList itemInShopListRef;
     private EventTrigger eventTrigger;
     public EventTrigger @EventTrigger { get => eventTrigger; set => eventTrigger = value; }
 
@@ -15,6 +16,7 @@ public class EquipmentSelectionBlock : MonoBehaviour, EventTriggerSettings.Trigg
     void Start()
     {
         eventTrigger = GetComponent<EventTrigger>();
+        itemInShopListRef = transform.GetChild(0).GetComponent<ItemInShopList>();
         EventTriggerSettings.setEventTriggerHoveringScale(this);
         EventTriggerSettings.setEventTriggerOnClick(this);
         originalScale = transform.localScale;
@@ -29,6 +31,21 @@ public class EquipmentSelectionBlock : MonoBehaviour, EventTriggerSettings.Trigg
     }
 
     public void onClick(BaseEventData baseEventData) {
-        Debug.Log("OnClickEquipmentSelectionBlock");
+        switch (itemInShopListRef.ItemInfo.itemType) {
+            case ItemType.OUTFIT:
+                break;
+            case ItemType.WEAPON:
+                if (itemInShopListRef.CurrentSelectedWeapon == itemInShopListRef)
+                {
+                    itemInShopListRef.CurrentSelectedWeapon = null;
+                    Debug.Log("Removed equipment from selection.");
+                    return;
+                }
+                itemInShopListRef.CurrentSelectedWeapon = itemInShopListRef;
+                Debug.Log("Saved equipment to currentSelectionWeapon.");
+                break;
+            case ItemType.ACCESSORIES:
+                break;
+        }
     }
 }

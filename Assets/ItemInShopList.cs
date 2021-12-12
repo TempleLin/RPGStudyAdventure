@@ -5,9 +5,16 @@ using UnityEngine.UI;
 
 public class ItemInShopList : MonoBehaviour
 {
+    public static ItemInShopList currentSelectedWeapon;
+    public ItemInShopList CurrentSelectedWeapon
+    {
+        get => currentSelectedWeapon;
+        set => currentSelectedWeapon = value;
+    }
+    
     private Text text;
     private ItemInfo itemInfo;
-    public ItemInfo @ItemInfo { set => itemInfo = value; }
+    public ItemInfo @ItemInfo { get => itemInfo; set => itemInfo = value; }
     public Sprite sprite => itemInfo.sprite;
     public void getCalledStart() {
         text = GetComponent<Text>();

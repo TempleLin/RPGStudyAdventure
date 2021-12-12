@@ -7,6 +7,10 @@ using UnityEngine.EventSystems;
 public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick, 
     EventTriggerSettings.TriggerOnHover
 {
+    [SerializeField] private MoneySaver moneySaverRef;
+    [SerializeField] private GameObject confirmBuyPanelRef;
+    // [SerializeField] private GameObject notEnoughMoneyPanelRef;
+    
     private EventTrigger eventTrigger;
     public EventTrigger EventTrigger { get => eventTrigger; set => eventTrigger = value; }
     private Vector3 originalScale;
@@ -14,10 +18,11 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
     private void Start() {
         eventTrigger = GetComponent<EventTrigger>();
         originalScale = transform.localScale;
+        confirmBuyPanelRef.SetActive(false);
     }
 
     void EventTriggerSettings.TriggerOnClick.onClick(BaseEventData baseEventData) {
-        Debug.Log("OnClick buy item.");
+        
     }
 
     void EventTriggerSettings.TriggerOnHover.onHoverEntry(BaseEventData baseEventData) {
