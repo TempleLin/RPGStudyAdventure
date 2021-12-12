@@ -24,21 +24,10 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
     private Vector3 originalScale;
 
     private ItemType itemTypeToWrite;
-    // private bool writeToWeaponTxt = false, writeToOutfitTxt = false, writeToAccessoryTxt = false;
+    
     private void Start()
     {
-        // weaponsWriter = new StreamWriter("Assets/Resources/Equipments/ContainedWeapons.txt");
-        // outfitsWriter = new StreamWriter("Assets/Resources/Equipments/ContainedOutfits.txt");
-        // accessoriesWriter = new StreamWriter("Assets/Resources/Equipments/ContainedAccessories.txt");
-        
         confirmBuyButtom.onClick.AddListener(delegate {
-            // if (writeToWeaponTxt) {
-            //     using (streamWriter = File.AppendText("Assets/Resources/Equipments/ContainedWeapons.txt")) {
-            //         streamWriter.WriteLine(ItemInShopList.currentSelectedWeapon.ItemInfo.name);
-            //         streamWriter.WriteLine("Resources/" + ItemInShopList.currentSelectedWeapon.ItemInfo.sprite.name);
-            //         streamWriter.Write("Weapon");
-            //     }
-            // }
             switch (itemTypeToWrite) {
                 case ItemType.OUTFIT:
                     break;
@@ -62,29 +51,7 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
     }
 
     void EventTriggerSettings.TriggerOnClick.onClick(BaseEventData baseEventData) {
-        // int totalPrice = 0;
-        // if (ItemInShopList.currentSelectedWeapon != null) {
-        //     totalPrice += ItemInShopList.currentSelectedWeapon.ItemInfo.price;
-        //     writeToWeaponTxt = true;
-        // } else {
-        //     writeToWeaponTxt = false;
-        // }
-        //
-        // if (ItemInShopList.currentSelectedOutfit != null) {
-        //     totalPrice += ItemInShopList.currentSelectedOutfit.ItemInfo.price;
-        //     writeToOutfitTxt = true;
-        // } else {
-        //     writeToOutfitTxt = false;
-        // }
-        //
-        // if (ItemInShopList.currentSelectedAccessory != null) {
-        //     totalPrice += ItemInShopList.currentSelectedOutfit.ItemInfo.price;
-        //     writeToOutfitTxt = true;
-        // } else {
-        //     writeToAccessoryTxt = false;
-        // }
-        
-        if (ItemInShopList.currentSelectedItem.ItemInfo.price/*totalPrice*/ <= moneySaverRef.moneyCount) {
+        if (ItemInShopList.currentSelectedItem.ItemInfo.price <= moneySaverRef.moneyCount) {
             confirmBuyPanelRef.SetActive(true);
         } else {
             notEnoughMoneyPanelRef.SetActive(true);
