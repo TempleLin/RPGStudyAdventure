@@ -51,12 +51,6 @@ public class ShopUtility : PageUtility {
 
     private void updateItemsInShopList() {
         List<string> lines = new List<string>(shopWeaponsListtxt.text.Split('\n'));
-        Debug.Log("Test print lines:");
-        foreach (var line in lines)
-        {
-            Debug.Log(line);
-        }
-        Debug.Log("Test print End.");
         for (int i = 0; i < lines.Count; i += 3) {
             shopWeaponsSelections.addItem(new ItemInfo {
                 name = lines[i].Trim(),

@@ -1,6 +1,0 @@
-機體立動裝置
-ItemsInShop/MenuvarGear
-Weapon
-火爆流氣斬
-ItemsInShop/StarBurst
-Weapon

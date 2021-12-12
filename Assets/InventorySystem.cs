@@ -20,7 +20,7 @@ public class InventorySystem : MonoBehaviour {
     private GameObject equpimentHolder;
 
     [SerializeField]
-    private TextAsset containedEquipmentsTxt;
+    private TextAsset containedWeaponsTxt;
 
     [SerializeField]
     private GameObject slotPrefab;
@@ -62,7 +62,7 @@ public class InventorySystem : MonoBehaviour {
             Destroy(inventoryObject.transform.GetChild(i).gameObject);
         }
 
-        List<string> lines = new List<string>(containedEquipmentsTxt.text.Split('\n'));
+        List<string> lines = new List<string>(containedWeaponsTxt.text.Split('\n'));
         for (int i = 0; i < lines.Count; i += 3) {
             var instantiated = Instantiate(slotPrefab, inventoryObject.transform);
             var itemObject = instantiated.transform.GetChild(1);

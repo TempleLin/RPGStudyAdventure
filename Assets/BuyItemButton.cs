@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(EventTrigger))]
 public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick, 
@@ -10,12 +13,34 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
     [SerializeField] private MoneySaver moneySaverRef;
     [SerializeField] private GameObject confirmBuyPanelRef;
     [SerializeField] private GameObject notEnoughMoneyPanelRef;
+    [Space(10)] [SerializeField] private Button confirmBuyButtom;
+    [SerializeField] private TextAsset containedWeaponsRef;
+    [SerializeField] private TextAsset containedOutfitsRef;
+    [SerializeField] private TextAsset containedAccessoriesRef;
+    private StreamWriter streamWriter;
     
     private EventTrigger eventTrigger;
     public EventTrigger EventTrigger { get => eventTrigger; set => eventTrigger = value; }
     private Vector3 originalScale;
 
-    private void Start() {
+    private bool writeToWeaponTxt = false, writeToOutfitTxt = false, writeToAccessoryTxt = false;
+    private void Start()
+    {
+        // weaponsWriter = new StreamWriter("Assets/Resources/Equipments/ContainedWeapons.txt");
+        // outfitsWriter = new StreamWriter("Assets/Resources/Equipments/ContainedOutfits.txt");
+        // accessoriesWriter = new StreamWriter("Assets/Resources/Equipments/ContainedAccessories.txt");
+        
+        confirmBuyButtom.onClick.AddListener(delegate {
+            if (writeToWeaponTxt) {
+                using (streamWriter = File.AppendText("Assets/Resources/Equipments/ContainedWeapons.txt")) {
+                    streamWriter.WriteLine(ItemInShopList.currentSelectedWeapon.ItemInfo.name);
+                    streamWriter.WriteLine("Resources/" + ItemInShopList.currentSelectedWeapon.ItemInfo.sprite.name);
+                    streamWriter.Write("Weapon");
+                }
+            }
+            Debug.Log(this.gameObject.name);
+        });
+        
         eventTrigger = GetComponent<EventTrigger>();
         originalScale = transform.localScale;
         confirmBuyPanelRef.SetActive(false);
@@ -23,15 +48,32 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
     }
 
     void EventTriggerSettings.TriggerOnClick.onClick(BaseEventData baseEventData) {
-        Debug.Log("Current Selected Weapon: " + ItemInShopList.currentSelectedWeapon.ItemInfo.name);
-        Debug.Log("Price: " + ItemInShopList.currentSelectedWeapon.ItemInfo.price);
-        Debug.Log("Money saved: " + moneySaverRef.moneyCount);
+        int totalPrice = 0;
         if (ItemInShopList.currentSelectedWeapon != null) {
-            if (ItemInShopList.currentSelectedWeapon.ItemInfo.price <= moneySaverRef.moneyCount) {
-                confirmBuyPanelRef.SetActive(true);
-            } else if (ItemInShopList.currentSelectedWeapon.ItemInfo.price > moneySaverRef.moneyCount) {
-                notEnoughMoneyPanelRef.SetActive(true);
-            }
+            totalPrice += ItemInShopList.currentSelectedWeapon.ItemInfo.price;
+            writeToWeaponTxt = true;
+        } else {
+            writeToWeaponTxt = false;
+        }
+
+        if (ItemInShopList.currentSelectedOutfit != null) {
+            totalPrice += ItemInShopList.currentSelectedOutfit.ItemInfo.price;
+            writeToOutfitTxt = true;
+        } else {
+            writeToOutfitTxt = false;
+        }
+
+        if (ItemInShopList.currentSelectedAccessory != null) {
+            totalPrice += ItemInShopList.currentSelectedOutfit.ItemInfo.price;
+            writeToOutfitTxt = true;
+        } else {
+            writeToAccessoryTxt = false;
+        }
+        
+        if (totalPrice <= moneySaverRef.moneyCount) {
+            confirmBuyPanelRef.SetActive(true);
+        } else {
+            notEnoughMoneyPanelRef.SetActive(true);
         }
     }
 

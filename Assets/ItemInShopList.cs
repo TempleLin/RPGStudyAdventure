@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class ItemInShopList : MonoBehaviour
 {
-    public static ItemInShopList currentSelectedWeapon;
-    public static ItemInShopList currentSelectedOutfit;
-    public static ItemInShopList currentSelectedAccessory;
+    public static ItemInShopList currentSelectedWeapon = null;
+    public static ItemInShopList currentSelectedOutfit = null;
+    public static ItemInShopList currentSelectedAccessory = null;
     public ItemInShopList CurrentSelectedWeapon
     {
         get => currentSelectedWeapon;
