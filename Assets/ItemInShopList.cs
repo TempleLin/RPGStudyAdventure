@@ -6,10 +6,23 @@ using UnityEngine.UI;
 public class ItemInShopList : MonoBehaviour
 {
     public static ItemInShopList currentSelectedWeapon;
+    public static ItemInShopList currentSelectedOutfit;
+    public static ItemInShopList currentSelectedAccessory;
     public ItemInShopList CurrentSelectedWeapon
     {
         get => currentSelectedWeapon;
         set => currentSelectedWeapon = value;
+    }
+    public ItemInShopList CurrentSelectedOutfit
+    {
+        get => currentSelectedOutfit;
+        set => currentSelectedOutfit = value;
+    }
+
+    public ItemInShopList CurrentSelectedAccessory
+    {
+        get => currentSelectedAccessory;
+        set => currentSelectedAccessory = value;
     }
     
     private Text text;

@@ -10,6 +10,7 @@ public class MoneySaver : MonoBehaviour
     [SerializeField]
     private TextAsset moneyCountTxtFile;
 
+    public int moneyCount;
     void Start()
     {
         moneyCountTxtFile = Resources.Load<TextAsset>("Currency/MoneyCount");
@@ -19,5 +20,6 @@ public class MoneySaver : MonoBehaviour
     public void updateMoneyCount() {
         moneyCountTxtFile.text.Trim();
         moneyCountText.text = moneyCountTxtFile.text;
+        moneyCount = int.Parse(moneyCountText.text);
     }
 }

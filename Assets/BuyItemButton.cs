@@ -22,7 +22,9 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
     }
 
     void EventTriggerSettings.TriggerOnClick.onClick(BaseEventData baseEventData) {
-        
+        if (ItemInShopList.currentSelectedWeapon.ItemInfo.price <= moneySaverRef.moneyCount) {
+            confirmBuyPanelRef.SetActive(true);
+        }
     }
 
     void EventTriggerSettings.TriggerOnHover.onHoverEntry(BaseEventData baseEventData) {
