@@ -12,6 +12,6 @@ public class ItemInShopList : MonoBehaviour
     public Sprite sprite => itemInfo.sprite;
     public void getCalledStart() {
         text = GetComponent<Text>();
-        text.text = itemInfo.name;
+        text.text = itemInfo.name + "  " + itemInfo.price.ToString();
     }
 }
