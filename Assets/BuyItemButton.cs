@@ -16,6 +16,8 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
     [Space(10)] 
     [SerializeField] private Button confirmBuyYes;
     [SerializeField] private Button confirmBuyNo;
+    [SerializeField] private Button exitPopupBtn;
+    [Space(10)]
     [SerializeField] private TextAsset containedWeaponsRef;
     [SerializeField] private TextAsset containedOutfitsRef;
     [SerializeField] private TextAsset containedAccessoriesRef;
@@ -57,6 +59,10 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
         });
         confirmBuyNo.onClick.AddListener(delegate {
             confirmBuyPanelRef.gameObject.SetActive(false);
+        });
+
+        exitPopupBtn.onClick.AddListener(delegate {
+            notEnoughMoneyPanelRef.gameObject.SetActive(false);
         });
         
         eventTrigger = GetComponent<EventTrigger>();
