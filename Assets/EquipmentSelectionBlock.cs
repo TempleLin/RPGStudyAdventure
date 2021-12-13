@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(EventTrigger))]
 public class EquipmentSelectionBlock : MonoBehaviour, EventTriggerSettings.TriggerOnHover,
@@ -13,6 +14,10 @@ public class EquipmentSelectionBlock : MonoBehaviour, EventTriggerSettings.Trigg
 
     private Vector3 originalScale;
 
+    [SerializeField]
+    private Image mainCharImgEquipmentSpriteRenderer;
+    private Sprite mainCharImgOriginalSprite;
+
     void Start()
     {
         eventTrigger = GetComponent<EventTrigger>();
@@ -20,6 +25,9 @@ public class EquipmentSelectionBlock : MonoBehaviour, EventTriggerSettings.Trigg
         EventTriggerSettings.setEventTriggerHoveringScale(this);
         EventTriggerSettings.setEventTriggerOnClick(this);
         originalScale = transform.localScale;
+
+        mainCharImgEquipmentSpriteRenderer = itemInShopListRef.ItemInfo.spriteHolderObject.GetComponent<Image>();
+        Debug.Log(mainCharImgEquipmentSpriteRenderer);
     }
 
     void EventTriggerSettings.TriggerOnHover.onHoverEntry(BaseEventData baseEventData) {
@@ -37,6 +45,8 @@ public class EquipmentSelectionBlock : MonoBehaviour, EventTriggerSettings.Trigg
             return;
         }
         ItemInShopList.currentSelectedItem = itemInShopListRef;
+        mainCharImgEquipmentSpriteRenderer.sprite = itemInShopListRef.ItemInfo.sprite;
+        mainCharImgEquipmentSpriteRenderer.color = Color.white;
         Debug.Log("Saved equipment to currentSelectionItem.");
     }
 }

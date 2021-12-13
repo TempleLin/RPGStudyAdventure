@@ -3405,6 +3405,7 @@ MonoBehaviour:
   shopLadyObject: {fileID: 1734383222}
   shopPageUIObject: {fileID: 239281235}
   mainCharImg: {fileID: 880476346}
+  mainCharWeaponImgEquipHolder: {fileID: 1389922313}
   mainCharPreviewPanel: {fileID: 1728383651}
   mainCharMoneySaver: {fileID: 1749303523}
   itemsListScrollbar: {fileID: 1511649629}
@@ -4519,6 +4520,7 @@ MonoBehaviour:
   containedWeaponsTxt: {fileID: 4900000, guid: bf10d95c347d45640a097ab5048fc324, type: 3}
   slotPrefab: {fileID: 1710030761410798473, guid: 19459112515af604fb99b3ac8e0c4e18, type: 3}
   inventoryObject: {fileID: 1530431728}
+  weaponSlots: []
 --- !u!4 &1346660323
 Transform:
   m_ObjectHideFlags: 0
