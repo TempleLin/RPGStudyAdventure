@@ -1185,7 +1185,6 @@ RectTransform:
   - {fileID: 1728383652}
   - {fileID: 1734383223}
   - {fileID: 743832256}
-  - {fileID: 471769017}
   - {fileID: 1749303520}
   - {fileID: 651982203}
   m_Father: {fileID: 400407196}
@@ -1809,7 +1808,7 @@ GameObject:
   - component: {fileID: 471769019}
   - component: {fileID: 471769018}
   m_Layer: 5
-  m_Name: MainCharEquipsPanel
+  m_Name: EquipmentListTabs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1822,19 +1821,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 471769016}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1841494179}
   - {fileID: 790063389}
   - {fileID: 193070569}
-  m_Father: {fileID: 239281236}
-  m_RootOrder: 3
+  m_Father: {fileID: 743832256}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -353.1719, y: 234.7}
+  m_AnchoredPosition: {x: -0.002319336, y: 283.10095}
   m_SizeDelta: {x: 241.9388, y: 93.9933}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &471769018
@@ -2356,7 +2355,7 @@ RectTransform:
   - {fileID: 1637210538}
   - {fileID: 127003802}
   m_Father: {fileID: 239281236}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2917,6 +2916,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 471769017}
   - {fileID: 1929681208}
   - {fileID: 1511649628}
   m_Father: {fileID: 239281236}
@@ -4818,7 +4818,7 @@ RectTransform:
   m_Children:
   - {fileID: 40454427}
   m_Father: {fileID: 743832256}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -5614,7 +5614,7 @@ RectTransform:
   - {fileID: 1540302313}
   - {fileID: 1243729606}
   m_Father: {fileID: 239281236}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6768,7 +6768,7 @@ RectTransform:
   m_Children:
   - {fileID: 23555124}
   m_Father: {fileID: 743832256}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
