@@ -10,6 +10,7 @@ public class BattleUtility : PageUtility {
     private CharacterProperties mainCharProperties;
     private CharacterProperties enemyProperties;
     private SpriteRenderer mainCharSpriteRenderer;
+    private SpriteRenderer mainCharEquipWeaponSpriteRenderer;
     private SpriteRenderer enemySpriteRenderer;
     private int nextGetAttacked = 0;
     
@@ -55,7 +56,11 @@ public class BattleUtility : PageUtility {
         mainCharProperties = _utilitiesSharedData.MainCharObject.GetComponent<CharacterProperties>();
         enemyProperties = _utilitiesSharedData.EnemyMonsterObject.GetComponent<CharacterProperties>();
         mainCharSpriteRenderer = _utilitiesSharedData.MainCharObject.GetComponent<SpriteRenderer>();
+        mainCharEquipWeaponSpriteRenderer = _utilitiesSharedData.MainCharObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
         enemySpriteRenderer = _utilitiesSharedData.EnemyMonsterObject.GetComponent<SpriteRenderer>();
+
+        mainCharSpriteRenderer.flipX = true;
+        mainCharEquipWeaponSpriteRenderer.flipX = true;
     }
 
     public override void getCalledUpdate() {
@@ -76,6 +81,8 @@ public class BattleUtility : PageUtility {
         enemySpriteRenderer.color = Color.white;
 
         _attackSelectionUtility.getCalledStart();
+        mainCharSpriteRenderer.flipX = false;
+        mainCharEquipWeaponSpriteRenderer.flipX = false;
     }
 
     private void launchAttack(CharacterProperties attacker, CharacterProperties defender) {

@@ -3447,7 +3447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 21300000, guid: 481ec9d77eee7de49a968639a32c5ce1, type: 3}
-  fightSpeed: 1
+  fightSpeed: 0.4
 --- !u!1 &880476346 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 909438381545646612, guid: 6975f9708a30b794ea88a9feada2517d, type: 3}
