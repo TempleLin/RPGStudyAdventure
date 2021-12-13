@@ -1,6 +1,6 @@
 機體立動裝置
-ItemsInShop/MenuvarGear
+ItemsInShop/Weapons/MenuvarGear
 80
 火爆流氣斬
-ItemsInShop/StarBurst
+ItemsInShop/Weapons/StarBurst
 150
