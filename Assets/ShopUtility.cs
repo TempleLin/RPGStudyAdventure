@@ -58,7 +58,7 @@ public class ShopUtility : PageUtility {
          */
         mainCharWeaponImgEquipHolder.sprite = mainCharWeaponImgEquipHolderOriginalSprite;
         if (mainCharWeaponImgEquipHolder.sprite == null)
-            mainCharWeaponImgEquipHolder.color = new Color(1, 1, 1, 0);
+            mainCharWeaponImgEquipHolder.color = new Color(1, 1, 1, 0); //Prevent having color the the image comp if not equipment is assigned.
     }
 
     private void updateItemsInShopList() {
