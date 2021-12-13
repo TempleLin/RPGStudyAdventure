@@ -34,14 +34,18 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
                 case ItemType.OUTFIT:
                     break;
                 case ItemType.WEAPON:
-                    streamWriter = File.AppendText("Assets/Resources/Equipments/ContainedWeapons.txt");
-                    streamWriter.WriteLine(ItemInShopList.currentSelectedItem.ItemInfo.name);
-                    streamWriter.WriteLine("ItemsInShop/" + ItemInShopList.currentSelectedItem.ItemInfo.sprite.name);
-                    streamWriter.WriteLine("Weapon");
-                    streamWriter.Close();
+                    using (streamWriter = File.AppendText("Assets/Resources/Equipments/ContainedWeapons.txt")) {
+                        streamWriter.WriteLine(ItemInShopList.currentSelectedItem.ItemInfo.name);
+                        streamWriter.WriteLine("ItemsInShop/" + ItemInShopList.currentSelectedItem.ItemInfo.sprite.name);
+                        streamWriter.WriteLine("Weapon");
+                    }
                     Debug.Log("ItemInfo: " + ItemInShopList.currentSelectedItem.ItemInfo.name);
                     InventorySystem.singleton.addItem(ItemInShopList.currentSelectedItem.ItemInfo.sprite, "ItemsInShop/" + ItemInShopList.currentSelectedItem.ItemInfo.sprite.name, 
                         ItemInShopList.currentSelectedItem.ItemInfo.name, ItemType.WEAPON);
+                    moneySaverRef.editMoneyCount(-ItemInShopList.currentSelectedItem.ItemInfo.price);
+                    using (streamWriter = new StreamWriter("Assets/Resources/Currency/MoneyCount.txt")) {
+                        streamWriter.WriteLine(moneySaverRef.MoneyCount.ToString());
+                    }
                     break;
                 case ItemType.ACCESSORIES:
                     break;
@@ -66,7 +70,7 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
             Debug.Log("No item selected! Can't buy.");
             return;
         }
-        if (ItemInShopList.currentSelectedItem.ItemInfo.price <= moneySaverRef.moneyCount) {
+        if (ItemInShopList.currentSelectedItem.ItemInfo.price <= moneySaverRef.MoneyCount) {
             confirmBuyPanelRef.SetActive(true);
         } else {
             notEnoughMoneyPanelRef.SetActive(true);

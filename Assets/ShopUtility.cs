@@ -37,7 +37,7 @@ public class ShopUtility : PageUtility {
         shopPageUIObject.SetActive(true);
         mainCharImg.transform.position = mainCharPreviewPanel.transform.position;
         mainCharImg.SetActive(true);
-        mainCharMoneySaver.updateMoneyCount();
+        mainCharMoneySaver.initializeReadMoneyCount();
 
         mainCharWeaponImgEquipHolderOriginalSprite = mainCharWeaponImgEquipHolder.sprite;
     }

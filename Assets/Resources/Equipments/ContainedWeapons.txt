@@ -4,6 +4,3 @@ Weapon
 機體立動裝置
 ItemsInShop/MenuvarGear
 Weapon
-機體立動裝置
-ItemsInShop/MenuvarGear
-Weapon
