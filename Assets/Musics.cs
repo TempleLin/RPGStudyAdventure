@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MusicsList : MonoBehaviour
+public class Musics : MonoBehaviour
 {
-    public static MusicsList singleton = null;
+    public static Musics singleton = null;
     [SerializeField]
     private List<AudioClip> musics;
-    public List<AudioClip> Musics => musics;
+    public List<AudioClip> _Musics => musics;
     private AudioSource _AudioSource;
     public AudioSource AudioSource => _AudioSource;
 

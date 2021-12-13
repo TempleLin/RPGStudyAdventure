@@ -44,8 +44,8 @@ public class BattleUtility : PageUtility {
     }
 
     public override void getCalledStart() {
-        MusicsList.singleton.AudioSource.clip = MusicsList.singleton.Musics[1];
-        MusicsList.singleton.AudioSource.Play();
+        Musics.singleton.AudioSource.clip = Musics.singleton._Musics[1];
+        Musics.singleton.AudioSource.Play();
 
         _attackSelectionUtility.getCalledStop();
         _utilitiesSharedData.BackgroundSpriteRenderer.sprite = background;
@@ -68,8 +68,8 @@ public class BattleUtility : PageUtility {
     }
 
     public override void getCalledStop() {
-        MusicsList.singleton.AudioSource.clip = MusicsList.singleton.Musics[0];
-        MusicsList.singleton.AudioSource.Play();
+        Musics.singleton.AudioSource.clip = Musics.singleton._Musics[0];
+        Musics.singleton.AudioSource.Play();
 
         _utilitiesSharedData.BackgroundSpriteRenderer.sprite = _attackSelectionUtility.Background;
         _utilitiesSharedData.EnemyMonsterObject.SetActive(false);
