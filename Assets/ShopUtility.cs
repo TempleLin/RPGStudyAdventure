@@ -22,6 +22,7 @@ public class ShopUtility : PageUtility {
     private Sprite mainCharWeaponImgEquipHolderOriginalSprite;
     void Start() {
         base.utilityStart();
+        mainCharMoneySaver.initializeReadMoneyCount();
         resetScrollPos();
         shopLadyObject.SetActive(false);
         shopPageUIObject.SetActive(false);
@@ -37,7 +38,6 @@ public class ShopUtility : PageUtility {
         shopPageUIObject.SetActive(true);
         mainCharImg.transform.position = mainCharPreviewPanel.transform.position;
         mainCharImg.SetActive(true);
-        mainCharMoneySaver.initializeReadMoneyCount();
 
         mainCharWeaponImgEquipHolderOriginalSprite = mainCharWeaponImgEquipHolder.sprite;
     }
@@ -59,6 +59,7 @@ public class ShopUtility : PageUtility {
         mainCharWeaponImgEquipHolder.sprite = mainCharWeaponImgEquipHolderOriginalSprite;
         if (mainCharWeaponImgEquipHolder.sprite == null)
             mainCharWeaponImgEquipHolder.color = new Color(1, 1, 1, 0); //Prevent having color the the image comp if not equipment is assigned.
+        ItemInShopList.currentSelectedItem = null; //Release item selection in preview when changing page.
     }
 
     private void updateItemsInShopList() {
