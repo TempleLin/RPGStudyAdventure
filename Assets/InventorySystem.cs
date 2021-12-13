@@ -47,7 +47,7 @@ public class InventorySystem : MonoBehaviour {
         var textHolder = itemObject.GetComponent<Text>();
         var _itemInfo = instantiated.GetComponent<ItemInfo>();
         InventorySlotItem inventorySlotItem = textHolder.gameObject.GetComponent<InventorySlotItem>();
-        inventorySlotItem.mainCharEquipmentImg0 = mainCharEquipmentImg0;
+        inventorySlotItem.mainCharWeaponEquipmentImg = mainCharEquipmentImg0;
         inventorySlotItem.getCalledStart();
         EventTriggerSettings.setEventTriggerDragDrop(inventorySlotItem);
         EventTriggerSettings.setEventTriggerHoveringScale(inventorySlotItem);
@@ -94,7 +94,7 @@ public class InventorySystem : MonoBehaviour {
             var textHolder = itemObject.GetComponent<Text>();
             var itemInfo = instantiated.GetComponent<ItemInfo>();
             InventorySlotItem inventorySlotItem = textHolder.gameObject.GetComponent<InventorySlotItem>();
-            inventorySlotItem.mainCharEquipmentImg0 = mainCharEquipmentImg0;
+            inventorySlotItem.mainCharWeaponEquipmentImg = mainCharEquipmentImg0;
             inventorySlotItem.getCalledStart();
             EventTriggerSettings.setEventTriggerDragDrop(inventorySlotItem);
             EventTriggerSettings.setEventTriggerHoveringScale(inventorySlotItem);

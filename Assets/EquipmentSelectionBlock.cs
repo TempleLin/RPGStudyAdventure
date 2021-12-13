@@ -15,7 +15,7 @@ public class EquipmentSelectionBlock : MonoBehaviour, EventTriggerSettings.Trigg
     private Vector3 originalScale;
 
     [SerializeField]
-    private Image mainCharImgEquipmentSpriteRenderer;
+    private Image mainCharWeaponEquipmentImg;
     private Sprite mainCharImgOriginalSprite;
 
     void Start()
@@ -26,8 +26,8 @@ public class EquipmentSelectionBlock : MonoBehaviour, EventTriggerSettings.Trigg
         EventTriggerSettings.setEventTriggerOnClick(this);
         originalScale = transform.localScale;
 
-        mainCharImgEquipmentSpriteRenderer = itemInShopListRef.ItemInfo.spriteHolderObject.GetComponent<Image>();
-        Debug.Log(mainCharImgEquipmentSpriteRenderer);
+        mainCharWeaponEquipmentImg = itemInShopListRef.ItemInfo.spriteHolderObject.GetComponent<Image>();
+        Debug.Log(mainCharWeaponEquipmentImg);
     }
 
     void EventTriggerSettings.TriggerOnHover.onHoverEntry(BaseEventData baseEventData) {
@@ -45,8 +45,8 @@ public class EquipmentSelectionBlock : MonoBehaviour, EventTriggerSettings.Trigg
             return;
         }
         ItemInShopList.currentSelectedItem = itemInShopListRef;
-        mainCharImgEquipmentSpriteRenderer.sprite = itemInShopListRef.ItemInfo.sprite;
-        mainCharImgEquipmentSpriteRenderer.color = Color.white;
+        mainCharWeaponEquipmentImg.sprite = itemInShopListRef.ItemInfo.sprite;
+        mainCharWeaponEquipmentImg.color = Color.white;
         Debug.Log("Saved equipment to currentSelectionItem.");
     }
 }
