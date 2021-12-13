@@ -16,7 +16,6 @@ public class EquipmentSelectionBlock : MonoBehaviour, EventTriggerSettings.Trigg
 
     [SerializeField]
     private Image mainCharWeaponEquipmentImg;
-    private Sprite mainCharImgOriginalSprite;
 
     void Start()
     {

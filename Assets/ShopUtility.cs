@@ -19,6 +19,7 @@ public class ShopUtility : PageUtility {
     [SerializeField] private TextAsset shopOutfitListtxt;
     [SerializeField] private TextAsset shopAccessoriesListtxt;
     private Vector3 mainCharImgOriginPos;
+    private Sprite mainCharWeaponImgEquipHolderOriginalSprite;
     void Start() {
         base.utilityStart();
         resetScrollPos();
@@ -37,6 +38,8 @@ public class ShopUtility : PageUtility {
         mainCharImg.transform.position = mainCharPreviewPanel.transform.position;
         mainCharImg.SetActive(true);
         mainCharMoneySaver.updateMoneyCount();
+
+        mainCharWeaponImgEquipHolderOriginalSprite = mainCharWeaponImgEquipHolder.sprite;
     }
 
     public override void getCalledUpdate() {
@@ -48,6 +51,14 @@ public class ShopUtility : PageUtility {
         shopPageUIObject.SetActive(false);
         mainCharImg.transform.position = mainCharImgOriginPos;
         mainCharImg.SetActive(false);
+
+        /*
+         * Reset equipment back when changing page. 
+         * (Since the equipments clicked in this page are only for preview.)
+         */
+        mainCharWeaponImgEquipHolder.sprite = mainCharWeaponImgEquipHolderOriginalSprite;
+        if (mainCharWeaponImgEquipHolder.sprite == null)
+            mainCharWeaponImgEquipHolder.color = new Color(1, 1, 1, 0);
     }
 
     private void updateItemsInShopList() {
