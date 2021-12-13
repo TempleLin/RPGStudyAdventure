@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(EventTrigger))]
-public class EquipmentSelectionBlock : MonoBehaviour, EventTriggerSettings.TriggerOnHover,
+public class ShopEquipmentSlot : MonoBehaviour, EventTriggerSettings.TriggerOnHover,
     EventTriggerSettings.TriggerOnClick
 {
     private ItemInShopList itemInShopListRef;
