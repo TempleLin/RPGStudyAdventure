@@ -793,6 +793,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 471769017}
     m_Modifications:
     - target: {fileID: 2880434585695477488, guid: 0b90178e0ca970447b489988e2b03362, type: 3}
+      propertyPath: scrollRect
+      value: 
+      objectReference: {fileID: 743832258}
+    - target: {fileID: 2880434585695477488, guid: 0b90178e0ca970447b489988e2b03362, type: 3}
       propertyPath: holdingList
       value: 
       objectReference: {fileID: 630446131}
@@ -3459,6 +3463,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 471769017}
     m_Modifications:
     - target: {fileID: 2880434585695477488, guid: 0b90178e0ca970447b489988e2b03362, type: 3}
+      propertyPath: scrollRect
+      value: 
+      objectReference: {fileID: 743832258}
+    - target: {fileID: 2880434585695477488, guid: 0b90178e0ca970447b489988e2b03362, type: 3}
       propertyPath: holdingList
       value: 
       objectReference: {fileID: 1218202856}
@@ -3808,6 +3816,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 392105877}
     m_Modifications:
+    - target: {fileID: 2880434585695477488, guid: 0b90178e0ca970447b489988e2b03362, type: 3}
+      propertyPath: scrollRect
+      value: 
+      objectReference: {fileID: 719104412}
     - target: {fileID: 2880434585695477488, guid: 0b90178e0ca970447b489988e2b03362, type: 3}
       propertyPath: holdingList
       value: 
@@ -4985,7 +4997,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCharEquipmentWeaponImg: {fileID: 1389922313}
   mainCharEquipmentOutfitImg: {fileID: 1903468304}
-  equpimentHolder: {fileID: 382992999}
+  mainCharWeaponEqupimentHolder: {fileID: 382992999}
+  mainCharOutfitEquipmentHolder: {fileID: 1969053802}
   containedWeaponsTxt: {fileID: 4900000, guid: bf10d95c347d45640a097ab5048fc324, type: 3}
   slotPrefab: {fileID: 1710030761410798473, guid: 19459112515af604fb99b3ac8e0c4e18, type: 3}
   inventoryWeaponsList: {fileID: 1530431728}
@@ -5069,6 +5082,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 392105877}
     m_Modifications:
+    - target: {fileID: 2880434585695477488, guid: 0b90178e0ca970447b489988e2b03362, type: 3}
+      propertyPath: scrollRect
+      value: 
+      objectReference: {fileID: 719104412}
     - target: {fileID: 2880434585695477488, guid: 0b90178e0ca970447b489988e2b03362, type: 3}
       propertyPath: holdingList
       value: 
@@ -5709,6 +5726,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 392105877}
     m_Modifications:
+    - target: {fileID: 2880434585695477488, guid: 0b90178e0ca970447b489988e2b03362, type: 3}
+      propertyPath: scrollRect
+      value: 
+      objectReference: {fileID: 719104412}
     - target: {fileID: 2880434585695477488, guid: 0b90178e0ca970447b489988e2b03362, type: 3}
       propertyPath: holdingList
       value: 
@@ -7565,6 +7586,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934841667}
   m_CullTransparentMesh: 1
+--- !u!1 &1969053802 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5853635375413435320, guid: eedbff79b7d44994ea27d2a53e2bf32c, type: 3}
+  m_PrefabInstance: {fileID: 7152682258902707339}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2009036295
 GameObject:
   m_ObjectHideFlags: 0
@@ -8066,6 +8092,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 471769017}
     m_Modifications:
+    - target: {fileID: 2880434585695477488, guid: 0b90178e0ca970447b489988e2b03362, type: 3}
+      propertyPath: scrollRect
+      value: 
+      objectReference: {fileID: 743832258}
     - target: {fileID: 2880434585695477488, guid: 0b90178e0ca970447b489988e2b03362, type: 3}
       propertyPath: holdingList
       value: 
