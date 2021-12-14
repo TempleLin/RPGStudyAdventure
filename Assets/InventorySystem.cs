@@ -22,7 +22,9 @@ public class InventorySystem : MonoBehaviour {
     private Image mainCharEquipmentOutfitImg;
 
     [SerializeField]
-    private GameObject equpimentHolder;
+    private GameObject mainCharWeaponEqupimentHolder;
+    [SerializeField]
+    private GameObject mainCharOutfitEquipmentHolder;
 
     [SerializeField]
     private TextAsset containedWeaponsTxt;
@@ -62,10 +64,10 @@ public class InventorySystem : MonoBehaviour {
         InventorySlotItem inventorySlotItem = textHolder.gameObject.GetComponent<InventorySlotItem>();
         switch (itemType) {
             case ItemType.WEAPON:
-                inventorySlotItem.mainCharWeaponEquipmentImg = mainCharEquipmentWeaponImg;
+                inventorySlotItem.equipmentImageHolder = mainCharEquipmentWeaponImg;
                 break;
             case ItemType.OUTFIT:
-                inventorySlotItem.mainCharWeaponEquipmentImg = mainCharEquipmentOutfitImg;
+                inventorySlotItem.equipmentImageHolder = mainCharEquipmentOutfitImg;
                 break;
         }
         inventorySlotItem.getCalledStart();
@@ -77,7 +79,15 @@ public class InventorySystem : MonoBehaviour {
         _itemInfo.name = weaponChineseName;
         _itemInfo.itemType = itemType;
         _itemInfo.sprite = sprite;
-        _itemInfo.spriteHolderObject = equpimentHolder;
+
+        switch (itemType) {
+            case ItemType.WEAPON:
+                _itemInfo.spriteHolderObject = mainCharWeaponEqupimentHolder;
+                break;
+            case ItemType.OUTFIT:
+                _itemInfo.spriteHolderObject = mainCharOutfitEquipmentHolder;
+                break;
+        }
         
         weaponSlots.Add(new InventorySlot
         {
@@ -121,7 +131,17 @@ public class InventorySystem : MonoBehaviour {
             var textHolder = itemObject.GetComponent<Text>();
             var itemInfo = instantiated.GetComponent<ItemInfo>();
             InventorySlotItem inventorySlotItem = textHolder.gameObject.GetComponent<InventorySlotItem>();
-            inventorySlotItem.mainCharWeaponEquipmentImg = mainCharEquipmentWeaponImg;
+            switch (lines[i + 2].Trim()) {
+                case "Weapon":
+                    inventorySlotItem.equipmentImageHolder = mainCharEquipmentWeaponImg;
+                    break;
+                case "Outfit":
+                    inventorySlotItem.equipmentImageHolder = mainCharEquipmentOutfitImg;
+                    break;
+                case "Accessories":
+                    itemInfo.itemType = ItemType.ACCESSORIES;
+                    break;
+            }
             inventorySlotItem.getCalledStart();
             EventTriggerSettings.setEventTriggerDragDrop(inventorySlotItem);
             EventTriggerSettings.setEventTriggerHoveringScale(inventorySlotItem);
@@ -135,18 +155,23 @@ public class InventorySystem : MonoBehaviour {
             }
 
             itemInfo.name = lines[i];
-            switch (lines[i + 2]) {
+            Debug.Log("What value is i + 2: " + lines[i + 2]);
+            switch (lines[i + 2].Trim()) {
                 case "Weapon":
                     itemInfo.itemType = ItemType.WEAPON;
+                    itemInfo.spriteHolderObject = mainCharWeaponEqupimentHolder;
+                    Debug.Log("Yes weapon");
                     break;
                 case "Outfit":
                     itemInfo.itemType = ItemType.OUTFIT;
+                    itemInfo.spriteHolderObject = mainCharOutfitEquipmentHolder;
+                    Debug.Log("Yes outfit");
                     break;
                 case "Accessories":
                     itemInfo.itemType = ItemType.ACCESSORIES;
                     break;
             }
-            itemInfo.spriteHolderObject = equpimentHolder;
+
 
             weaponSlots.Add(new InventorySlot {
                 _gameObject = instantiated,

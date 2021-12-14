@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class InventorySlotItem : MonoBehaviour, EventTriggerSettings.TriggerOnDragDrop, EventTriggerSettings.TriggerOnHover, 
     EventTriggerSettings.TriggerOnClick {
-    public Image mainCharWeaponEquipmentImg;
+    public Image equipmentImageHolder;
     private ItemInfo itemInfo;
     private EventTrigger _eventTrigger;
     private Vector3 originalPosition;
@@ -53,8 +53,9 @@ public class InventorySlotItem : MonoBehaviour, EventTriggerSettings.TriggerOnDr
         Debug.Log("OnClickSlotItem");
         baseEventData.selectedObject = gameObject;
         Debug.Log("Clicked object: " + baseEventData.selectedObject.name);
+
         itemInfo.spriteHolderObject.GetComponent<SpriteRenderer>().sprite = itemInfo.sprite;
-        mainCharWeaponEquipmentImg.color = Color.white;
-        mainCharWeaponEquipmentImg.sprite = itemInfo.sprite;
+        equipmentImageHolder.color = Color.white;
+        equipmentImageHolder.sprite = itemInfo.sprite;
     }
 }
