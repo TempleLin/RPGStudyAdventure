@@ -32,6 +32,10 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
     private void Start()
     {
         confirmBuyYes.onClick.AddListener(delegate {
+            moneySaverRef.editMoneyCount(-ItemInShopList.currentSelectedItem.ItemInfo.price);
+            using (streamWriter = new StreamWriter("Assets/Resources/Currency/MoneyCount.txt")) {
+                streamWriter.WriteLine(moneySaverRef.MoneyCount.ToString());
+            }
             switch (itemTypeToWrite) {
                 case ItemType.OUTFIT:
                     break;
@@ -44,10 +48,6 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
                     Debug.Log("ItemInfo: " + ItemInShopList.currentSelectedItem.ItemInfo.name);
                     InventorySystem.singleton.addItem(ItemInShopList.currentSelectedItem.ItemInfo.sprite, "ItemsInShop/" + ItemInShopList.currentSelectedItem.ItemInfo.sprite.name, 
                         ItemInShopList.currentSelectedItem.ItemInfo.name, ItemType.WEAPON);
-                    moneySaverRef.editMoneyCount(-ItemInShopList.currentSelectedItem.ItemInfo.price);
-                    using (streamWriter = new StreamWriter("Assets/Resources/Currency/MoneyCount.txt")) {
-                        streamWriter.WriteLine(moneySaverRef.MoneyCount.ToString());
-                    }
                     break;
                 case ItemType.ACCESSORIES:
                     break;
