@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4232298665672108644}
   - component: {fileID: 3567094419475552108}
   - component: {fileID: 7538241334869955712}
+  - component: {fileID: 2880434585695477488}
   m_Layer: 5
   m_Name: ItemsListTab
   m_TagString: Untagged
@@ -117,10 +118,22 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 3567094419475552108}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2880434585695477488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4232298665672108643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c627de0ed984fc4bb6115bd4574ee63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5827958874181303884
 GameObject:
   m_ObjectHideFlags: 0
