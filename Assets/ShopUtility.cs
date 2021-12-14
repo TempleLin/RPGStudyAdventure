@@ -8,6 +8,7 @@ public class ShopUtility : PageUtility {
     [SerializeField] private GameObject shopPageUIObject;
     [SerializeField] private GameObject mainCharImg;
     [SerializeField] private Image mainCharWeaponImgEquipHolder;
+    [SerializeField] private Image mainCharOutfitImgEquipHolder;
     [SerializeField] private GameObject mainCharPreviewPanel;
     [SerializeField] private MoneySaver mainCharMoneySaver;
     [SerializeField] private Scrollbar itemsListScrollbar;
@@ -81,7 +82,7 @@ public class ShopUtility : PageUtility {
                 sprite = Resources.Load<Sprite>(lines[i + 1].Trim()),
                 price = int.Parse(lines[i + 2].Trim()),
                 itemType = ItemType.OUTFIT,
-                spriteHolderObject = mainCharWeaponImgEquipHolder.gameObject
+                spriteHolderObject = mainCharOutfitImgEquipHolder.gameObject
             });
         }
     }
