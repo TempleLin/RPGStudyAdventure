@@ -38,7 +38,7 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
                 case ItemType.WEAPON:
                     using (streamWriter = File.AppendText("Assets/Resources/Equipments/ContainedWeapons.txt")) {
                         streamWriter.WriteLine(ItemInShopList.currentSelectedItem.ItemInfo.name);
-                        streamWriter.WriteLine("ItemsInShop/" + ItemInShopList.currentSelectedItem.ItemInfo.sprite.name);
+                        streamWriter.WriteLine("ItemsInShop/Weapons/" + ItemInShopList.currentSelectedItem.ItemInfo.sprite.name);
                         streamWriter.WriteLine("Weapon");
                     }
                     Debug.Log("ItemInfo: " + ItemInShopList.currentSelectedItem.ItemInfo.name);
