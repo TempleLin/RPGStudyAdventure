@@ -100,13 +100,23 @@ public class InventorySystem : MonoBehaviour {
         using (StreamReader streamReader = new StreamReader("Assets/Resources/Equipments/ContainedWeapons.txt")) {
             lines = new List<string>(streamReader.ReadToEnd().Split('\n'));
         }
+        addItemToInventoryList(lines, inventoryWeaponsList);
+
+        using (StreamReader streamReader = new StreamReader("Assets/Resources/Equipments/ContainedOutfits.txt")) {
+            lines = new List<string>(streamReader.ReadToEnd().Split('\n'));
+        }
+        addItemToInventoryList(lines, inventoryOutfitsList);
+
 
         if (lines.Count == 1 && (lines[0] == "" || lines[0] == "\n")) {
             return;
         }
-        
-        for (int i = 0; i < lines.Count - 1; i += 3) {            
-            var instantiated = Instantiate(slotPrefab, inventoryWeaponsList.transform);
+
+    }
+
+    private void addItemToInventoryList(List<string> lines, GameObject inventoryList) {
+        for (int i = 0; i < lines.Count - 1; i += 3) {
+            var instantiated = Instantiate(slotPrefab, inventoryList.transform);
             var itemObject = instantiated.transform.GetChild(1);
             var textHolder = itemObject.GetComponent<Text>();
             var itemInfo = instantiated.GetComponent<ItemInfo>();
@@ -117,15 +127,15 @@ public class InventorySystem : MonoBehaviour {
             EventTriggerSettings.setEventTriggerHoveringScale(inventorySlotItem);
             EventTriggerSettings.setEventTriggerOnClick(inventorySlotItem);
             textHolder.text = lines[i];
-        
-            string linei_1Replaced = Regex.Replace(lines[i+1], @"\t|\n|\r", "");
+
+            string linei_1Replaced = Regex.Replace(lines[i + 1], @"\t|\n|\r", "");
             itemInfo.sprite = Resources.Load<Sprite>(linei_1Replaced);
             if (itemInfo.sprite == null) {
                 Debug.Log("Failed to load equipment sprite: Equipments/" + lines[i + 1]);
             }
-        
+
             itemInfo.name = lines[i];
-            switch(lines[i + 2]) {
+            switch (lines[i + 2]) {
                 case "Weapon":
                     itemInfo.itemType = ItemType.WEAPON;
                     break;
@@ -138,12 +148,11 @@ public class InventorySystem : MonoBehaviour {
             }
             itemInfo.spriteHolderObject = equpimentHolder;
 
-            weaponSlots.Add(new InventorySlot
-            {
+            weaponSlots.Add(new InventorySlot {
                 _gameObject = instantiated,
                 textHolder = textHolder,
                 path = lines[i + 1],
-                itemInfo = itemInfo 
+                itemInfo = itemInfo
             });
         }
     }

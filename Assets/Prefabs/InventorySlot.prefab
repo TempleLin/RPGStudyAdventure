@@ -133,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fc74463b87f0d0469f807eb24ffb427, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCharEquipmentImg0: {fileID: 0}
+  mainCharWeaponEquipmentImg: {fileID: 0}
 --- !u!114 &8713340318476894990
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -181,7 +181,7 @@ GameObject:
   - component: {fileID: 8774375950041068957}
   - component: {fileID: 5248149398548854955}
   m_Layer: 5
-  m_Name: Slot
+  m_Name: InventorySlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -250,6 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: 
   description: 
+  price: 0
   sprite: {fileID: 0}
   itemType: 0
   spriteHolderObject: {fileID: 0}
