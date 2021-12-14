@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -64,7 +65,11 @@ public class ShopUtility : PageUtility {
     }
 
     private void updateItemsInShopList() {
-        List<string> lines = new List<string>(shopWeaponsListtxt.text.Split('\n'));
+        List<string> lines;
+        using (StreamReader streamReader = new StreamReader("Assets/Resources/ItemsInShop/WeaponsInShop.txt")) {
+            lines = new List<string>(streamReader.ReadToEnd().Split('\n'));
+        }
+        //List<string> lines = new List<string>(shopWeaponsListtxt.text.Split('\n'));
         for (int i = 0; i < lines.Count; i += 3) {
             shopWeaponsSelections.addItem(new ItemInfo {
                 name = lines[i].Trim(),
@@ -75,7 +80,10 @@ public class ShopUtility : PageUtility {
             });
         }
 
-        lines = new List<string>(shopOutfitListtxt.text.Split('\n'));
+        using (StreamReader streamReader = new StreamReader("Assets/Resources/ItemsInShop/OutfitsInShop.txt")) {
+            lines = new List<string>(streamReader.ReadToEnd().Split('\n'));
+        }
+        //lines = new List<string>(shopOutfitListtxt.text.Split('\n'));
         for (int i = 0; i < lines.Count; i += 3) {
             shopOutfitSelections.addItem(new ItemInfo {
                 name = lines[i].Trim(),
