@@ -11,6 +11,7 @@ public class BattleUtility : PageUtility {
     private CharacterProperties enemyProperties;
     private SpriteRenderer mainCharSpriteRenderer;
     private SpriteRenderer mainCharEquipWeaponSpriteRenderer;
+    private SpriteRenderer mainCharEquipOutfitSpriteRenderer;
     private SpriteRenderer enemySpriteRenderer;
     private int nextGetAttacked = 0;
     
@@ -27,11 +28,15 @@ public class BattleUtility : PageUtility {
                 switch (nextGetAttacked) {
                     case 0:
                         mainCharSpriteRenderer.color = Color.red;
+                        mainCharEquipWeaponSpriteRenderer.color = Color.red;
+                        mainCharEquipOutfitSpriteRenderer.color = Color.red;
                         enemySpriteRenderer.color = Color.white;
                         launchAttack(enemyProperties, mainCharProperties);
                         break;
                     case 1:
                         mainCharSpriteRenderer.color = Color.white;
+                        mainCharEquipWeaponSpriteRenderer.color = Color.white;
+                        mainCharEquipOutfitSpriteRenderer.color = Color.white;
                         enemySpriteRenderer.color = Color.red;
                         launchAttack(mainCharProperties, enemyProperties);
                         break;
@@ -57,10 +62,12 @@ public class BattleUtility : PageUtility {
         enemyProperties = _utilitiesSharedData.EnemyMonsterObject.GetComponent<CharacterProperties>();
         mainCharSpriteRenderer = _utilitiesSharedData.MainCharObject.GetComponent<SpriteRenderer>();
         mainCharEquipWeaponSpriteRenderer = _utilitiesSharedData.MainCharObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        mainCharEquipOutfitSpriteRenderer = _utilitiesSharedData.MainCharObject.transform.GetChild(1).GetComponent<SpriteRenderer>();
         enemySpriteRenderer = _utilitiesSharedData.EnemyMonsterObject.GetComponent<SpriteRenderer>();
 
         mainCharSpriteRenderer.flipX = true;
         mainCharEquipWeaponSpriteRenderer.flipX = true;
+        mainCharEquipOutfitSpriteRenderer.flipX = true;
     }
 
     public override void getCalledUpdate() {
@@ -78,11 +85,14 @@ public class BattleUtility : PageUtility {
         startFight = false;
 
         mainCharSpriteRenderer.color = Color.white;
+        mainCharEquipWeaponSpriteRenderer.color = Color.white;
+        mainCharEquipOutfitSpriteRenderer.color = Color.white;
         enemySpriteRenderer.color = Color.white;
 
         _attackSelectionUtility.getCalledStart();
         mainCharSpriteRenderer.flipX = false;
         mainCharEquipWeaponSpriteRenderer.flipX = false;
+        mainCharEquipOutfitSpriteRenderer.flipX = false;
     }
 
     private void launchAttack(CharacterProperties attacker, CharacterProperties defender) {

@@ -1,3 +1,6 @@
 仙人掌
 ItemsInShop/Weapons/Cactus
 Weapon
+弓
+ItemsInShop/Weapons/Bow
+Weapon
