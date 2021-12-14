@@ -43,7 +43,7 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
                         streamWriter.WriteLine("Outfit");
                     }
                     Debug.Log("ItemInfo: " + ItemInShopList.currentSelectedItem.ItemInfo.name);
-                    InventorySystem.singleton.addItem(ItemInShopList.currentSelectedItem.ItemInfo.sprite, "ItemsInShop/" + ItemInShopList.currentSelectedItem.ItemInfo.sprite.name,
+                    InventorySystem.singleton.addBoughtItem(ItemInShopList.currentSelectedItem.ItemInfo.sprite, "ItemsInShop/" + ItemInShopList.currentSelectedItem.ItemInfo.sprite.name,
                         ItemInShopList.currentSelectedItem.ItemInfo.name, ItemType.OUTFIT);
                     break;
                 case ItemType.WEAPON:
@@ -54,7 +54,7 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
                         streamWriter.WriteLine("Weapon");
                     }
                     Debug.Log("ItemInfo: " + ItemInShopList.currentSelectedItem.ItemInfo.name);
-                    InventorySystem.singleton.addItem(ItemInShopList.currentSelectedItem.ItemInfo.sprite, "ItemsInShop/" + ItemInShopList.currentSelectedItem.ItemInfo.sprite.name, 
+                    InventorySystem.singleton.addBoughtItem(ItemInShopList.currentSelectedItem.ItemInfo.sprite, "ItemsInShop/" + ItemInShopList.currentSelectedItem.ItemInfo.sprite.name, 
                         ItemInShopList.currentSelectedItem.ItemInfo.name, ItemType.WEAPON);
                     break;
                 case ItemType.ACCESSORIES:

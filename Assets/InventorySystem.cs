@@ -46,7 +46,7 @@ public class InventorySystem : MonoBehaviour {
     }
 
     //Get called by outside to add item to inventory. 
-    public void addItem(Sprite sprite, string path, string weaponChineseName, ItemType itemType) {
+    public void addBoughtItem(Sprite sprite, string path, string weaponChineseName, ItemType itemType) {
         GameObject instantiated = null;
         switch (itemType) {
             case ItemType.WEAPON:
