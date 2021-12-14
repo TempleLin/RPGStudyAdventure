@@ -99,7 +99,7 @@ public class ShopUtility : PageUtility {
         }
         //lines = new List<string>(shopOutfitListtxt.text.Split('\n'));
         for (int i = 0; i < lines.Count; i += 3) {
-            shopWeaponsSelections.addItem(
+            shopOutfitSelections.addItem(
                 lines[i].Trim(),
                 Resources.Load<Sprite>(lines[i + 1].Trim()),
                 int.Parse(lines[i + 2].Trim()),

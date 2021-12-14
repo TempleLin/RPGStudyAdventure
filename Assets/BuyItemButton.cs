@@ -27,8 +27,6 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
     public EventTrigger EventTrigger { get => eventTrigger; set => eventTrigger = value; }
     private Vector3 originalScale;
 
-    private ItemType itemTypeToWrite;
-    
     private void Start()
     {
         confirmBuyYes.onClick.AddListener(delegate {
@@ -36,7 +34,7 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
             using (streamWriter = new StreamWriter("Assets/Resources/Currency/MoneyCount.txt")) {
                 streamWriter.WriteLine(moneySaverRef.MoneyCount.ToString());
             }
-            switch (itemTypeToWrite) {
+            switch (ItemInShopList.currentSelectedItem.ItemInfo.itemType) {
                 case ItemType.OUTFIT:
                     Debug.Log("Bought outfit");
                     using (streamWriter = File.AppendText("Assets/Resources/Equipments/ContainedOutfits.txt")) {

@@ -1,0 +1,3 @@
+兔女郎
+ItemsInShop/Outfits/BunnyGirl
+Outfit
