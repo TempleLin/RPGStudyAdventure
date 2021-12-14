@@ -1,0 +1,3 @@
+等身抱枕
+ItemsInShop/Weapons/Pillow
+Weapon

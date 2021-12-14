@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -75,20 +76,17 @@ public class InventorySystem : MonoBehaviour {
         for (int i = childs - 1; i > 0; i--) {
             Destroy(inventoryObject.transform.GetChild(i).gameObject);
         }
-        
-        List<string> lines = new List<string>(containedWeaponsTxt.text.Split('\n'));
-        Debug.Log("Count: " + lines.Count);
+
+        List<string> lines;
+        using (StreamReader streamReader = new StreamReader("Assets/Resources/Equipments/ContainedWeapons.txt")) {
+            lines = new List<string>(streamReader.ReadToEnd().Split('\n'));
+        }
+
         if (lines.Count == 1 && (lines[0] == "" || lines[0] == "\n")) {
-            Debug.Log(13);
             return;
         }
         
-        for (int i = 0; i < lines.Count - 1; i += 3) {
-            Debug.Log(14);
-            Debug.Log("Print contains:");
-            Debug.Log(containedWeaponsTxt.text);
-            Debug.Log("End print contains.");
-            
+        for (int i = 0; i < lines.Count - 1; i += 3) {            
             var instantiated = Instantiate(slotPrefab, inventoryObject.transform);
             var itemObject = instantiated.transform.GetChild(1);
             var textHolder = itemObject.GetComponent<Text>();
