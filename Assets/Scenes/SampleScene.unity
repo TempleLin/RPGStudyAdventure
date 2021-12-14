@@ -4983,11 +4983,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c0a4eb051d77d44b928bfea27f1ddd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainCharEquipmentImg0: {fileID: 1389922313}
+  mainCharEquipmentWeaponImg: {fileID: 1389922313}
+  mainCharEquipmentOutfitImg: {fileID: 1903468304}
   equpimentHolder: {fileID: 382992999}
   containedWeaponsTxt: {fileID: 4900000, guid: bf10d95c347d45640a097ab5048fc324, type: 3}
   slotPrefab: {fileID: 1710030761410798473, guid: 19459112515af604fb99b3ac8e0c4e18, type: 3}
-  inventoryObject: {fileID: 1530431728}
+  inventoryWeaponsList: {fileID: 1530431728}
+  inventoryOutfitsList: {fileID: 1615930533}
   weaponSlots: []
 --- !u!4 &1346660323
 Transform:
@@ -7914,6 +7916,10 @@ PrefabInstance:
       value: -0.0000076294
       objectReference: {fileID: 0}
     - target: {fileID: 3688639069612503993, guid: 6975f9708a30b794ea88a9feada2517d, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4947153158148003106, guid: 6975f9708a30b794ea88a9feada2517d, type: 3}
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}

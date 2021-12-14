@@ -17,7 +17,9 @@ public class InventorySystem : MonoBehaviour {
     public static InventorySystem singleton = null;
 
     [SerializeField]
-    private Image mainCharEquipmentImg0;
+    private Image mainCharEquipmentWeaponImg;
+    [SerializeField]
+    private Image mainCharEquipmentOutfitImg;
 
     [SerializeField]
     private GameObject equpimentHolder;
@@ -29,7 +31,9 @@ public class InventorySystem : MonoBehaviour {
     private GameObject slotPrefab;
 
     [SerializeField]
-    private GameObject inventoryObject;
+    private GameObject inventoryWeaponsList;
+    [SerializeField]
+    private GameObject inventoryOutfitsList;
 
     [SerializeField]
     private List<InventorySlot> weaponSlots;
@@ -43,12 +47,27 @@ public class InventorySystem : MonoBehaviour {
 
     //Get called by outside to add item to inventory. 
     public void addItem(Sprite sprite, string path, string weaponChineseName, ItemType itemType) {
-        var instantiated = Instantiate(slotPrefab, inventoryObject.transform);
+        GameObject instantiated = null;
+        switch (itemType) {
+            case ItemType.WEAPON:
+                instantiated = Instantiate(slotPrefab, inventoryWeaponsList.transform);
+                break;
+            case ItemType.OUTFIT:
+                instantiated = Instantiate(slotPrefab, inventoryOutfitsList.transform);
+                break;
+        }
         var itemObject = instantiated.transform.GetChild(1);
         var textHolder = itemObject.GetComponent<Text>();
         var _itemInfo = instantiated.GetComponent<ItemInfo>();
         InventorySlotItem inventorySlotItem = textHolder.gameObject.GetComponent<InventorySlotItem>();
-        inventorySlotItem.mainCharWeaponEquipmentImg = mainCharEquipmentImg0;
+        switch (itemType) {
+            case ItemType.WEAPON:
+                inventorySlotItem.mainCharWeaponEquipmentImg = mainCharEquipmentWeaponImg;
+                break;
+            case ItemType.OUTFIT:
+                inventorySlotItem.mainCharWeaponEquipmentImg = mainCharEquipmentOutfitImg;
+                break;
+        }
         inventorySlotItem.getCalledStart();
         EventTriggerSettings.setEventTriggerDragDrop(inventorySlotItem);
         EventTriggerSettings.setEventTriggerHoveringScale(inventorySlotItem);
@@ -72,9 +91,9 @@ public class InventorySystem : MonoBehaviour {
     //Only called on startup, to read all inventory items.
     private void startupContainments() {
         Debug.Log("Update Containments");
-        int childs = inventoryObject.transform.childCount;
+        int childs = inventoryWeaponsList.transform.childCount;
         for (int i = childs - 1; i > 0; i--) {
-            Destroy(inventoryObject.transform.GetChild(i).gameObject);
+            Destroy(inventoryWeaponsList.transform.GetChild(i).gameObject);
         }
 
         List<string> lines;
@@ -87,12 +106,12 @@ public class InventorySystem : MonoBehaviour {
         }
         
         for (int i = 0; i < lines.Count - 1; i += 3) {            
-            var instantiated = Instantiate(slotPrefab, inventoryObject.transform);
+            var instantiated = Instantiate(slotPrefab, inventoryWeaponsList.transform);
             var itemObject = instantiated.transform.GetChild(1);
             var textHolder = itemObject.GetComponent<Text>();
             var itemInfo = instantiated.GetComponent<ItemInfo>();
             InventorySlotItem inventorySlotItem = textHolder.gameObject.GetComponent<InventorySlotItem>();
-            inventorySlotItem.mainCharWeaponEquipmentImg = mainCharEquipmentImg0;
+            inventorySlotItem.mainCharWeaponEquipmentImg = mainCharEquipmentWeaponImg;
             inventorySlotItem.getCalledStart();
             EventTriggerSettings.setEventTriggerDragDrop(inventorySlotItem);
             EventTriggerSettings.setEventTriggerHoveringScale(inventorySlotItem);

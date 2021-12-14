@@ -22,6 +22,7 @@ public class ShopUtility : PageUtility {
     [SerializeField] private TextAsset shopAccessoriesListtxt;
     private Vector3 mainCharImgOriginPos;
     private Sprite mainCharWeaponImgEquipHolderOriginalSprite;
+    private Sprite mainCharOutfitImgEquipHolderOriginalSprite;
     void Start() {
         base.utilityStart();
         mainCharMoneySaver.initializeReadMoneyCount();
@@ -42,6 +43,7 @@ public class ShopUtility : PageUtility {
         mainCharImg.SetActive(true);
 
         mainCharWeaponImgEquipHolderOriginalSprite = mainCharWeaponImgEquipHolder.sprite;
+        mainCharOutfitImgEquipHolderOriginalSprite = mainCharOutfitImgEquipHolder.sprite;
     }
 
     public override void getCalledUpdate() {
@@ -60,7 +62,11 @@ public class ShopUtility : PageUtility {
          */
         mainCharWeaponImgEquipHolder.sprite = mainCharWeaponImgEquipHolderOriginalSprite;
         if (mainCharWeaponImgEquipHolder.sprite == null)
-            mainCharWeaponImgEquipHolder.color = new Color(1, 1, 1, 0); //Prevent having color the the image comp if not equipment is assigned.
+            mainCharWeaponImgEquipHolder.color = new Color(1, 1, 1, 0); //Prevent having color on the image comp if not equipment is assigned.
+        mainCharOutfitImgEquipHolder.sprite = mainCharOutfitImgEquipHolderOriginalSprite;
+        if (mainCharOutfitImgEquipHolder.sprite == null)
+            mainCharOutfitImgEquipHolder.color = new Color(1, 1, 1, 0);
+
         ItemInShopList.currentSelectedItem = null; //Release item selection in preview when changing page.
     }
 
@@ -70,14 +76,22 @@ public class ShopUtility : PageUtility {
             lines = new List<string>(streamReader.ReadToEnd().Split('\n'));
         }
         //List<string> lines = new List<string>(shopWeaponsListtxt.text.Split('\n'));
+        Debug.Log(125);
         for (int i = 0; i < lines.Count; i += 3) {
-            shopWeaponsSelections.addItem(new ItemInfo {
-                name = lines[i].Trim(),
-                sprite = Resources.Load<Sprite>(lines[i + 1].Trim()),
-                price = int.Parse(lines[i + 2].Trim()),
-                itemType = ItemType.WEAPON,
-                spriteHolderObject = mainCharWeaponImgEquipHolder.gameObject
-            });
+            shopWeaponsSelections.addItem(
+                lines[i].Trim(),
+                Resources.Load<Sprite>(lines[i + 1].Trim()),
+                int.Parse(lines[i + 2].Trim()),
+                ItemType.WEAPON,
+                mainCharWeaponImgEquipHolder.gameObject
+                );
+            //shopWeaponsSelections.addItem(new ItemInfo {
+            //    name = lines[i].Trim(),
+            //    sprite = Resources.Load<Sprite>(lines[i + 1].Trim()),
+            //    price = int.Parse(lines[i + 2].Trim()),
+            //    itemType = ItemType.WEAPON,
+            //    spriteHolderObject = mainCharWeaponImgEquipHolder.gameObject
+            //});
         }
 
         using (StreamReader streamReader = new StreamReader("Assets/Resources/ItemsInShop/OutfitsInShop.txt")) {
@@ -85,13 +99,20 @@ public class ShopUtility : PageUtility {
         }
         //lines = new List<string>(shopOutfitListtxt.text.Split('\n'));
         for (int i = 0; i < lines.Count; i += 3) {
-            shopOutfitSelections.addItem(new ItemInfo {
-                name = lines[i].Trim(),
-                sprite = Resources.Load<Sprite>(lines[i + 1].Trim()),
-                price = int.Parse(lines[i + 2].Trim()),
-                itemType = ItemType.OUTFIT,
-                spriteHolderObject = mainCharOutfitImgEquipHolder.gameObject
-            });
+            shopWeaponsSelections.addItem(
+                lines[i].Trim(),
+                Resources.Load<Sprite>(lines[i + 1].Trim()),
+                int.Parse(lines[i + 2].Trim()),
+                ItemType.OUTFIT,
+                mainCharWeaponImgEquipHolder.gameObject
+                );
+            //shopOutfitSelections.addItem(new ItemInfo {
+            //    name = lines[i].Trim(),
+            //    sprite = Resources.Load<Sprite>(lines[i + 1].Trim()),
+            //    price = int.Parse(lines[i + 2].Trim()),
+            //    itemType = ItemType.OUTFIT,
+            //    spriteHolderObject = mainCharOutfitImgEquipHolder.gameObject
+            //});
         }
     }
 

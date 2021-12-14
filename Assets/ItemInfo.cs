@@ -8,8 +8,7 @@ public enum ItemType {
     ACCESSORIES
 }
 
-public class ItemInfo : MonoBehaviour
-{
+public class ItemInfo : MonoBehaviour {
     public string name;
     public string description;
     public int price;

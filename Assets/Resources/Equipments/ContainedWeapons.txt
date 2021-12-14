@@ -1,3 +1,6 @@
 等身抱枕
 ItemsInShop/Weapons/Pillow
 Weapon
+香蕉
+ItemsInShop/Weapons/Banana
+Weapon

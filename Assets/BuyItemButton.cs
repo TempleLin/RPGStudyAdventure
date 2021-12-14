@@ -38,6 +38,7 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
             }
             switch (itemTypeToWrite) {
                 case ItemType.OUTFIT:
+                    Debug.Log("Bought outfit");
                     using (streamWriter = File.AppendText("Assets/Resources/Equipments/ContainedOutfits.txt")) {
                         streamWriter.WriteLine(ItemInShopList.currentSelectedItem.ItemInfo.name);
                         streamWriter.WriteLine("ItemsInShop/Outfits/" + ItemInShopList.currentSelectedItem.ItemInfo.sprite.name);
@@ -48,6 +49,7 @@ public class BuyItemButton : MonoBehaviour, EventTriggerSettings.TriggerOnClick,
                         ItemInShopList.currentSelectedItem.ItemInfo.name, ItemType.OUTFIT);
                     break;
                 case ItemType.WEAPON:
+                    Debug.Log("Bought weapon");
                     using (streamWriter = File.AppendText("Assets/Resources/Equipments/ContainedWeapons.txt")) {
                         streamWriter.WriteLine(ItemInShopList.currentSelectedItem.ItemInfo.name);
                         streamWriter.WriteLine("ItemsInShop/Weapons/" + ItemInShopList.currentSelectedItem.ItemInfo.sprite.name);
