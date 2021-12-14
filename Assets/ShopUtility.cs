@@ -73,6 +73,17 @@ public class ShopUtility : PageUtility {
                 spriteHolderObject = mainCharWeaponImgEquipHolder.gameObject
             });
         }
+
+        lines = new List<string>(shopOutfitListtxt.text.Split('\n'));
+        for (int i = 0; i < lines.Count; i += 3) {
+            shopOutfitSelections.addItem(new ItemInfo {
+                name = lines[i].Trim(),
+                sprite = Resources.Load<Sprite>(lines[i + 1].Trim()),
+                price = int.Parse(lines[i + 2].Trim()),
+                itemType = ItemType.OUTFIT,
+                spriteHolderObject = mainCharWeaponImgEquipHolder.gameObject
+            });
+        }
     }
 
     private void resetScrollPos() {
